@@ -16,6 +16,7 @@
     "webpack": "^5.74.0"
   },
   "dependencies": {
+    "firebase": "^9.9.3",
     "firebase-tools": "^11.8.0"
   }
 }

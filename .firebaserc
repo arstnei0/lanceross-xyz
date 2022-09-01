@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "lanceross-xyz-83505"
-  }
+    "default": "lanceross-xyz-83505",
+    "yep": "lanceross-xyz-83505"
+  },
+  "targets": {},
+  "etags": {}
 }

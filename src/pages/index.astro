@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Lance Ross">
+	<main class="light-scheme">
+		<article>
+			<img src="../../hero.jpg" alt="">
+		</article>
+		<h1>Hello, My name is <span class="text-gradient">Lance</span></h1>
+		<p>I am an aspiring full stack web developer in the Philippines building Web applications for fun.
+		I'm currently learning <a href="https://angular.io" target="_blank">Angular</a> and <a href="https://firebase.google.com" target="_blank">Firebase</a> which my favorite tools for Web development by Google.</p><br>
+		<hr>
+		<ul role="list" id="menu" class="link-card-grid">
+			<Card
+				href="/about"
+				title="About"
+				body="If you want to know more about me, click here."
+			/>
+			<Card
+				href="/blog"
+				title="Blog"
+				body="I have a blog on Dev Community! You should visit it."
+			/>
+			<Card
+				href="/projects"
+				title="Projects"
+				body="Here are all my projects. I will update this every time I have new project."
+			/>
+			<Card
+				href="/contact"
+				title="Contact"
+				body="Come say hi to me and follow with my socials!"
+			/>
+		</ul>
+		<footer>
+            <p>Designed and built by Lance Ross</p>
+            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+        </footer>
+	</main>
+</Layout>
+<script lang="js">
+	function themeToggle() {
+		let element = document.body;
+		element.classList.toggle("day");
+	}
+</script>
+
+<style lang="scss">
+	h1 {
+		margin: 2rem 0;
+	}
+		
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 75ch;
+	}
+
+	img {
+		margin-top: 1.35em;
+		border-radius: 50%;
+		display: flex;
+		justify-content: flex-end;
+		width: 192px;
+		height: 192px;
+	}
+
+	.text-gradient {
+		font-weight: 800;
+		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		-webkit-animation: hue 5s ease-in-out infinite;
+	}
+
+	@-webkit-keyframes hue {
+      from {
+        -webkit-filter: hue-rotate(0deg);
+      }
+      to {
+        -webkit-filter: hue-rotate(-360deg);
+      }
+    }
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+</style>

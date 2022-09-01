@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Lance Ross">
+	<main>
+        <div class="how-to-center-a-div">
+            <h1><span class="text-gradient">404</span> Error</h1>
+            <h2>Page not found</h2>
+        </div>
+		<br>
+		<hr>
+		<ul role="list" class="link-card-grid">
+            <Card
+				href="/"
+				title="Home"
+				body="Go back to home. Now go!"
+			/>
+			<Card
+				href="/about"
+				title="About"
+				body="If you want to know more about me, click here."
+			/>
+			<Card
+				href="/projects"
+				title="Projects"
+				body="Here are all my projects. I will update this every time I have new project."
+			/>
+			<Card
+				href="/contact"
+				title="Contact"
+				body="Come say hi to me and follow with my socials!"
+			/>
+		</ul>
+        <footer>
+            <p>Designed and built by Lance Ross</p>
+            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+        </footer>
+	</main>
+</Layout>
+
+<style lang="scss">
+	h1 {
+		margin: 2rem 0;
+        font-size: clamp(2.8rem, 2.38vw + 2.5rem, 3.6rem) !important;
+	}
+
+    .how-to-center-a-div {
+        display: grid;
+        place-items: center;
+    }
+		
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 75ch;
+	}
+
+	.text-gradient {
+		font-weight: 800;
+		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		-webkit-animation: hue 5s ease-in-out infinite;
+	}
+
+	@-webkit-keyframes hue {
+      from {
+        -webkit-filter: hue-rotate(0deg);
+      }
+      to {
+        -webkit-filter: hue-rotate(-360deg);
+      }
+    }
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+</style>

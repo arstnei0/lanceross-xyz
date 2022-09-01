@@ -1,0 +1,120 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style lang="scss">
+	:root {
+		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.57rem);
+		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.84rem);
+
+		--color-text: hsl(215, 20%, 88%);
+		--color-links: hsl(231, 18%, 21%);
+		--color-links-hover: hsl(230, 18%, 31%);
+		--color-bg: hsl(224, 20%, 11%);
+		--color-border: hsl(17, 24%, 90%);
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('../fonts/Poppins.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	html {
+		font-family: Poppins, sans-serif;
+		font-size: var(--font-size-base);
+		color: var(--color-text);
+		background-color: var(--color-bg);
+		background-repeat: no-repeat;
+		background-size: 600% 600%;
+		scroll-behavior: smooth;
+	}
+
+	:global(::selection) {
+		background-color: var(--color-links);
+		color: #FFF;
+	}
+
+	body {
+		margin: 0;
+	}
+
+	:global(.btn) {
+		width: 48px;
+		height: 48px;
+		float: right !important;
+		cursor: pointer;
+	}
+
+	:global(a) {
+		background-color: var(--color-links);
+		border-radius: 0.25em;
+		padding: 0px 5px 3px 5px;
+		font-size: 1em;
+		color: inherit;
+		text-decoration: none;
+		transition: all 170ms ease;
+  	}
+  
+	:global(a:hover) {
+		background-color: var(--color-links-hover);
+		text-decoration: none;
+	}
+
+	:global(h1) {
+		font-size: var(--font-size-xl);
+	}
+
+	:global(h2) {
+		font-size: var(--font-size-lg);
+	}
+
+	:global(footer) {
+		bottom: 0;
+		margin-top: 3em;
+		display: grid;
+		place-items: center;
+		line-height: 1.5px;
+		background-color: var(--links-);
+	}
+
+	:global(.day) {
+		root:--color-bg{filter:invert(100%)}
+		root:--color-links{filter:invert(100%)}
+		root:--color-links-hover{filter:invert(100%)}
+		root:--color-text{filter:invert(100%)}}
+
+
+	@media (prefers-color-scheme:light){
+		:global(.day.light-scheme) {
+		root:--color-bg{filter:invert(100%)}
+		root:--color-links{filter:invert(100%)}
+		root:--color-links-hover{filter:invert(100%)}
+		root:--color-text{filter:invert(100%)}
+		}
+	}
+		
+
+	@media (max-width: 768px) {
+		:global(main) {padding: 2em 2em;}}
+</style>

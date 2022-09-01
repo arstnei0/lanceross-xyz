@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Lance Ross">
+	<main>
+		<h1>About Me</h1>
+        <p>
+            I'm Lance, a front-end web developer based in the Philippines. I enjoy building projects using good ol' HTML, CSS, and JavaScript (sometimes, with a Static Site Generator). I also use many front-end frameworks like Bootstrap and Angular.
+        </p>
+        <p>
+            When not busy with doing web development stuff, I play different video games, plays guitar, and does exercises.
+        </p>
+        <h1>Skills</h1>
+        <h2>Programming Languages</h2>
+        <ul>
+            <li>Python - I learned this language just for fun and as a hobby.</li>
+            <li>JavaScript  - My favorite programming language!</li>
+        </ul>
+        <h2>Web Frameworks</h2>
+        <ul>
+            <li>Bootstrap - I picked this over Tailwind because it is easier.</li>
+            <li>Angular - One of my favorite JavaScript frameworks!</li>
+            <li>Firebase - I use this backend service for most of my projects.</li>
+        </ul>
+        <h1>Biography</h1>
+        <p>
+            Lance Ross is a Web developer in the Philippines learning different web frameworks like Angular and Bootstrap. When not busy with doing web development stuff, he plays different video games, plays guitar, and does exercises.
+        </p><br>
+		<hr>
+        <ul role="list" id="menu"  class="link-card-grid">
+			<Card
+				href="/"
+				title="Home"
+				body="Go back to home. Now go!"
+			/>
+			<Card
+				href="/blog"
+				title="Blog"
+				body="I have a blog on Dev Community! You should visit it."
+			/>
+			<Card
+				href="/projects"
+				title="Projects"
+				body="Here are all my projects. I will update this every time I have new project."
+			/>
+			<Card
+				href="/contact"
+				title="Contact"
+				body="Come say hi to me and follow with my socials!"
+			/>
+		</ul>
+        <footer>
+            <p>Designed and built by Lance Ross</p>
+            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+        </footer>
+	</main>
+</Layout>
+
+<style lang="scss">
+	:root {
+		--astro-gradient: linear-gradient(45deg, #00c3fe, #a15eff);
+	}
+
+	h1 {
+		margin: 2rem 0;
+	}
+		
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 75ch;
+	}
+
+	.text-gradient {
+		font-weight: 800;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 3s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+</style>

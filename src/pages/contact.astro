@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Lance Ross">
+	<main>
+        <h1>Connect with me!</h1>
+        <ul>
+            <li>GitHub - <a href="https://github.com/lancerossdev" target="_blank">@lancerossdev</a></li>
+            <li>Twitter - <a href="https://twitter.com/lancerossdev" target="_blank">@lancerossdev</a></li>
+            <li>Dev Community - <a href="https://dev.to/lanceross" target="_blank">@lanceross</a></li>
+			<li>Email - <a id="tooltip" class="tooltip" onclick="myFunction()">Click this to copy my email</a></li>
+        </ul><br>
+		<hr>
+		<ul role="list" class="link-card-grid">
+            <Card
+				href="/"
+				title="Home"
+				body="Go back to home. Now go!"
+			/>
+			<Card
+				href="/about"
+				title="About"
+				body="If you want to know more about me, click here."
+			/>
+			<Card
+				href="/blog"
+				title="Blog"
+				body="I have a blog on Dev Community! You should visit it."
+			/>
+			<Card
+				href="/projects"
+				title="Projects"
+				body="Here are all my projects. I will update this every time I have new project."
+			/>
+		</ul>
+        <footer>
+            <p>Designed and built by Lance Ross</p>
+            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+        </footer>
+	</main>
+</Layout>
+<script lang="js">
+	function myFunction() {
+		let email = 'zyx.ssorecnal@ecnal';
+		
+		let tempInput = document.createElement('INPUT');
+		document.body.appendChild(tempInput);
+		tempInput.setAttribute('value', email.split('').reverse().join(''));
+		tempInput.select();
+		tempInput.setSelectionRange(0, 99999);
+		document.execCommand('copy');
+		document.body.removeChild(tempInput);
+
+		var tooltip = document.getElementById("tooltip");
+		tooltip.classList.add('active');
+		setTimeout(() => {
+			tooltip.classList.remove('active');
+		}, 1500);
+		alert('Email is now copied to the clipboard!');
+	}
+</script>
+
+<style lang="scss">
+	h1 {
+		margin: 2rem 0;
+	}
+		
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 75ch;
+	}
+
+	.tooltip {
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.text-gradient {
+		font-weight: 800;
+		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		-webkit-animation: hue 5s ease-in-out infinite;
+	}
+
+	@-webkit-keyframes hue {
+      from {
+        -webkit-filter: hue-rotate(0deg);
+      }
+      to {
+        -webkit-filter: hue-rotate(-360deg);
+      }
+    }
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+</style>

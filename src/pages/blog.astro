@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Lance Ross">
+	<main>
+		<h1>Welcome to my blog</h1>
+		<p>You can find my blogs on my <a href="https://dev.to/lanceross">Dev Community</a> because I don't really know how to set up a Headless CMS on my website..</p>
+		<span>No content for now.. Wait for me to update it soon.</span>
+		<br>
+		<hr>
+		<ul role="list" class="link-card-grid">
+            <Card
+				href="/"
+				title="Home"
+				body="Go back to home. Now go!"
+			/>
+			<Card
+				href="/about"
+				title="About"
+				body="If you want to know more about me, click here."
+			/>
+			<Card
+				href="/projects"
+				title="Projects"
+				body="Here are all my projects. I will update this every time I have new project."
+			/>
+			<Card
+				href="/contact"
+				title="Contact"
+				body="Come say hi to me and follow with my socials!"
+			/>
+		</ul>
+        <footer>
+            <p>Designed and built by Lance Ross</p>
+            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+        </footer>
+	</main>
+</Layout>
+
+<style lang="scss">
+	h1 {
+		margin: 2rem 0;
+	}
+		
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 75ch;
+	}
+
+	.text-gradient {
+		font-weight: 800;
+		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		-webkit-animation: hue 5s ease-in-out infinite;
+	}
+
+	@-webkit-keyframes hue {
+      from {
+        -webkit-filter: hue-rotate(0deg);
+      }
+      to {
+        -webkit-filter: hue-rotate(-360deg);
+      }
+    }
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+</style>

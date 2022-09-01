@@ -14,5 +14,8 @@
     "astro": "^1.1.2",
     "sass": "^1.54.8",
     "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "firebase-tools": "^11.8.0"
   }
 }

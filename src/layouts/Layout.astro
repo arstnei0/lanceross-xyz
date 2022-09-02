@@ -20,6 +20,7 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style lang="scss">
+	$selection: hsl(231, 18%, 21%);
 	:root {
 		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.57rem);
 		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
@@ -51,12 +52,13 @@ const { title } = Astro.props;
 	}
 
 	:global(::selection) {
-		background-color: var(--color-links);
+		background-color: lighten($selection, 30%);
 		color: #FFF;
 	}
 
 	body {
 		margin: 0;
+		will-change: transform;
 	}
 
 	:global(.btn) {
@@ -89,6 +91,19 @@ const { title } = Astro.props;
 		font-size: var(--font-size-lg);
 	}
 
+	:global(body::-webkit-scrollbar) {
+		width: 5px;
+	}
+
+	:global(body::-webkit-scrollbar-track) {
+		background-color: #242735;
+	}
+
+	:global(body::-webkit-scrollbar-thumb) {
+		background-color: #434860;  
+		border-radius: 20px;
+	}
+
 	:global(footer) {
 		bottom: 0;
 		margin-top: 3em;
@@ -98,6 +113,7 @@ const { title } = Astro.props;
 		background-color: var(--links-);
 	}
 
+	// I can't make this thing work :(
 	:global(.day) {
 		root:--color-bg{filter:invert(100%)}
 		root:--color-links{filter:invert(100%)}
@@ -113,7 +129,6 @@ const { title } = Astro.props;
 		root:--color-text{filter:invert(100%)}
 		}
 	}
-		
 
 	@media (max-width: 768px) {
 		:global(main) {padding: 2em 2em;}}

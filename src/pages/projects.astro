@@ -3,11 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Lance Ross">
+<Layout title="Projects of Lance Ross">
 	<main>
 		<h1>My Projects</h1>
-		<p>You can find here all my projects from GitHub. I usually create Web applications because I really enjoy it.</p>
-		<span>No content for now.. Wait for me to update it soon.</span>
+		<p>You can find here all my projects from GitHub. I usually create Web apps and Static sites.</p>
+		<p>I don't know how to customize the project cards so this design will work for now..</p>
+		<ul role="list" class="big-card-grid">
+			<Card
+				href="https://github.com/lancerossdev/lanceross-xyz/"
+				title="lanceross.xyz"
+				body="This is my new website which you are looking right now!"
+			/>
+			<Card
+				href="https://github.com/lancerossdev/old-website/"
+				title="Old Website"
+				body="This is my old website made with HTML, Sass and a few JavaScript."
+			/>
+			<Card
+				href="#"
+				title="Bootstrap Sass Site"
+				body="Coming soon! Maybe in a few weeks or months.."
+			/>
+		</ul>
+		<p>You can check all my projects in <a href="https://github.com/lancerossdev?tab=repositories" target="_blank" rel="noopener nofollow"></a></p>
 		<br>
 		<hr>
 		<ul role="list" class="link-card-grid">
@@ -73,6 +91,13 @@ import Card from '../components/Card.astro';
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+
+	.big-card-grid {
+		display: grid;
+		align-items: center;
 		gap: 1rem;
 		padding: 1em 0 0 0;
 	}

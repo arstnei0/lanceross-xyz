@@ -3,11 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Lance Ross">
+<Layout title="Blog of Lance Ross">
 	<main>
 		<h1>Welcome to my blog</h1>
-		<p>You can find my blogs on my <a href="https://dev.to/lanceross">Dev Community</a> because I don't really know how to set up a Headless CMS on my website..</p>
-		<span>No content for now.. Wait for me to update it soon.</span>
+		<p>You can find my blogs on my <a href="https://dev.to/lanceross" target="_blank" rel="noopener nofollow">Dev Community</a> because I don't really know how to set up a Headless CMS on my website..</p>
+		<p>I don't know how to customize the project cards so this design will work for now..</p>
+		<ul role="list" class="big-card-grid">
+			<Card
+				href="https://dev.to/lanceross/hello-20gp/"
+				title="Hello! - Aug 10"
+				body="Hello all! I am Lance and I just started to learn Web Development and also created my dev.to just a few weeks ago..."
+			/>
+		</ul>
 		<br>
 		<hr>
 		<ul role="list" class="link-card-grid">
@@ -34,7 +41,7 @@ import Card from '../components/Card.astro';
 		</ul>
         <footer>
             <p>Designed and built by Lance Ross</p>
-            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+            <p>Built using <a href="https://astro.build" target="_blank" rel="noopener nofollow">Astro</a> and <a href="https://sass-lang.com/" target="_blank" rel="noopener nofollow">Sass</a></p>
         </footer>
 	</main>
 </Layout>
@@ -73,6 +80,13 @@ import Card from '../components/Card.astro';
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+
+	.big-card-grid {
+		display: grid;
+		align-items: center;
 		gap: 1rem;
 		padding: 1em 0 0 0;
 	}

@@ -4,13 +4,13 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Lance Ross">
-	<main class="light-scheme">
+	<main>
 		<article>
 			<img src="../../hero.jpg" alt="">
 		</article>
 		<h1>Hello, My name is <span class="text-gradient">Lance</span></h1>
-		<p>I am an aspiring full stack web developer in the Philippines building Web applications for fun.
-		I'm currently learning <a href="https://angular.io" target="_blank">Angular</a> and <a href="https://firebase.google.com" target="_blank">Firebase</a> which my favorite tools for Web development by Google.</p><br>
+		<p>I am an aspiring Front-end JavaScript web developer in the Philippines building different Web applications for fun.
+		I'm currently learning <a href="https://angular.io" target="_blank" rel="noopener nofollow">Angular</a> and <a href="https://firebase.google.com" target="_blank" rel="noopener nofollow">Firebase</a> which are my favorite tools for Web development by Google.</p><br>
 		<hr>
 		<ul role="list" id="menu" class="link-card-grid">
 			<Card
@@ -36,16 +36,10 @@ import Card from '../components/Card.astro';
 		</ul>
 		<footer>
             <p>Designed and built by Lance Ross</p>
-            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+            <p>Built using <a href="https://astro.build" target="_blank" rel="noopener nofollow">Astro</a> and <a href="https://sass-lang.com/" target="_blank" rel="noopener nofollow">Sass</a></p>
         </footer>
 	</main>
 </Layout>
-<script lang="js">
-	function themeToggle() {
-		let element = document.body;
-		element.classList.toggle("day");
-	}
-</script>
 
 <style lang="scss">
 	h1 {
@@ -65,6 +59,12 @@ import Card from '../components/Card.astro';
 		justify-content: flex-end;
 		width: 192px;
 		height: 192px;
+		transition: all 1s;
+		
+		&:hover {
+			transform: rotate(360deg);
+			// pretty cool huh?
+		}
 	}
 
 	.text-gradient {

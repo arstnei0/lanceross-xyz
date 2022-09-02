@@ -7,15 +7,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "wbpk": "webpack --config webpack.config.js"
+    "astro": "astro"
   },
   "devDependencies": {
     "astro": "^1.1.2",
-    "sass": "^1.54.8",
-    "webpack": "^5.74.0"
+    "sass": "^1.54.8"
   },
   "dependencies": {
+    "@julian_cataldo/astro-link": "^0.12.5",
     "firebase": "^9.9.3",
     "firebase-tools": "^11.8.0"
   }

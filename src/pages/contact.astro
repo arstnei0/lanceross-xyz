@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Lance Ross">
+<Layout title="Say hi to Lance Ross">
 	<main>
         <h1>Connect with me!</h1>
         <ul>
-            <li>GitHub - <a href="https://github.com/lancerossdev" target="_blank">@lancerossdev</a></li>
-            <li>Twitter - <a href="https://twitter.com/lancerossdev" target="_blank">@lancerossdev</a></li>
-            <li>Dev Community - <a href="https://dev.to/lanceross" target="_blank">@lanceross</a></li>
-			<li>Email - <a id="tooltip" class="tooltip" onclick="myFunction()">Click this to copy my email</a></li>
+            <li>GitHub - <a href="https://github.com/lancerossdev" target="_blank" rel="noopener nofollow">@lancerossdev</a></li>
+            <li>Twitter - <a href="https://twitter.com/lancerossdev" target="_blank" rel="noopener nofollow">@lancerossdev</a></li>
+            <li>Dev Community - <a href="https://dev.to/lanceross" target="_blank" rel="noopener nofollow">@lanceross</a></li>
+			<li>Email - <a id="tooltip" class="tooltip inactive" onclick="myFunction()">Click to copy</a></li>
         </ul><br>
 		<hr>
 		<ul role="list" class="link-card-grid">
@@ -37,7 +37,7 @@ import Card from '../components/Card.astro';
 		</ul>
         <footer>
             <p>Designed and built by Lance Ross</p>
-            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+            <p>Built using <a href="https://astro.build" target="_blank" rel="noopener nofollow">Astro</a> and <a href="https://sass-lang.com/" target="_blank" rel="noopener nofollow">Sass</a></p>
         </footer>
 	</main>
 </Layout>
@@ -57,8 +57,7 @@ import Card from '../components/Card.astro';
 		tooltip.classList.add('active');
 		setTimeout(() => {
 			tooltip.classList.remove('active');
-		}, 1500);
-		alert('Email is now copied to the clipboard!');
+		}, 2000);
 	}
 </script>
 
@@ -76,8 +75,25 @@ import Card from '../components/Card.astro';
 	.tooltip {
 		cursor: pointer;
 		user-select: none;
+
+		&::after {
+			display: none;
+		}
+
 	}
 
+	.active {		
+		&::after {
+			content: 'Copied!';
+			position: absolute;
+			background-color: lighten(hsl(231, 18%, 21%), 20%);
+			display: inline-block !important;
+			margin-left: 10px;
+			border-radius: 0.25em;
+			padding: 0px 5px 3px 5px;
+		}
+	}
+	
 	.text-gradient {
 		font-weight: 800;
 		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);

@@ -1,13 +1,19 @@
 ---
+import SEO from '../SEO.astro';
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
+<head>
+    <SEO
+      title="About - Lance Ross"
+      description="I'm Lance, a front-end web developer based in Philippines. You can find more about me here."/>  
+</head>
 
-<Layout title="About Lance Ross">
+<Layout title="About - Lance Ross">
 	<main>
 		<h1>About Me</h1>
         <p>
-            I'm Lance, a front-end web developer based in the Philippines. I enjoy building projects using good ol' HTML, CSS, and JavaScript (sometimes, with a Static Site Generator). I also use many front-end frameworks like Bootstrap and Angular.
+            I'm Lance, a front-end web developer based in the Philippines. I enjoy building projects using good ol' HTML, CSS, and JavaScript. I also use many front-end frameworks like <a href="https://angular.io" target="_blank" rel="noopener nofollow">Angular</a> and <a href="https://getbootstrap.com" target="_blank" rel="noopener nofollow">Bootstrap</a>.
         </p>
         <p>
             When not busy with doing web development stuff, I play different video games, plays guitar, and does exercises.
@@ -26,14 +32,14 @@ import Card from '../components/Card.astro';
         </ul>
         <h1>Biography</h1>
         <p>
-            Lance Ross is a Web developer in the Philippines learning different web frameworks like Angular and Bootstrap. When not busy with doing web development stuff, he plays different video games, plays guitar, and does exercises.
+            Lance Ross is a Web developer in the Philippines learning different web frameworks like <a href="https://angular.io" target="_blank" rel="noopener nofollow">Angular</a> and <a href="https://getbootstrap.com" target="_blank" rel="noopener nofollow">Bootstrap</a>. When not busy with doing web development stuff, he plays different video games, plays guitar, and does exercises.
         </p><br>
 		<hr>
-        <ul role="list" id="menu"  class="link-card-grid">
+        <ul role="list" id="menu" class="link-card-grid">
 			<Card
 				href="/"
 				title="Home"
-				body="Go back to home. Now go!"
+				body="Go back to my homepage."
 			/>
 			<Card
 				href="/blog"
@@ -43,7 +49,7 @@ import Card from '../components/Card.astro';
 			<Card
 				href="/projects"
 				title="Projects"
-				body="Here are all my projects. I will update this every time I have new project."
+				body="Here are all my projects from my GitHub."
 			/>
 			<Card
 				href="/contact"
@@ -57,47 +63,3 @@ import Card from '../components/Card.astro';
         </footer>
 	</main>
 </Layout>
-
-<style lang="scss">
-	:root {
-		--astro-gradient: linear-gradient(45deg, #00c3fe, #a15eff);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-		
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 75ch;
-	}
-
-	.text-gradient {
-		font-weight: 800;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 3s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-</style>

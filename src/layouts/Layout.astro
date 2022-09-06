@@ -19,18 +19,17 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style lang="scss">
-	$selection: hsl(231, 18%, 21%);
+<style is:global lang="scss">
+	$font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.57rem);
+	$font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+	$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.54rem);
+	$color-text: hsl(215, 20%, 88%);
+	$color-links: hsl(231, 18%, 21%);
+	$color-bg: hsl(228, 21%, 9%);
+	$color-border: hsl(17, 24%, 90%);
 	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.57rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.84rem);
-
-		--color-text: hsl(215, 20%, 88%);
-		--color-links: hsl(231, 18%, 21%);
-		--color-links-hover: hsl(230, 18%, 31%);
-		--color-bg: hsl(224, 20%, 11%);
-		--color-border: hsl(17, 24%, 90%);
+		--color-border: hsl(17, 24%, 90%); 
+		// I can't implement this with SCSS..
 	}
 
 	@font-face {
@@ -43,16 +42,16 @@ const { title } = Astro.props;
 
 	html {
 		font-family: Poppins, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
+		font-size: $font-size-base;
+		color: $color-text;
+		background: $color-bg;
 		background-repeat: no-repeat;
 		background-size: 600% 600%;
 		scroll-behavior: smooth;
 	}
 
-	:global(::selection) {
-		background-color: lighten($selection, 30%);
+	::selection {
+		background-color: lighten($color-bg, 30%);
 		color: #FFF;
 	}
 
@@ -61,75 +60,133 @@ const { title } = Astro.props;
 		will-change: transform;
 	}
 
-	:global(.btn) {
-		width: 48px;
-		height: 48px;
-		float: right !important;
-		cursor: pointer;
+	.text-gradient {
+		font-weight: 800;
+		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		-webkit-animation: hue 5s ease-in-out infinite;
 	}
 
-	:global(a) {
-		background-color: var(--color-links);
+	@-webkit-keyframes hue {
+      from {
+        -webkit-filter: hue-rotate(0deg);
+      }
+      to {
+        -webkit-filter: hue-rotate(-360deg);
+      }
+    }
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+
+	.big-card-grid {
+		display: grid;
+		align-items: center;
+		gap: 1rem;
+		padding: 1em 0 0 0;
+	}
+
+	.hero-section {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 43.45em;
+	}
+
+	.tooltip {
+		cursor: pointer;
+		user-select: none;
+
+		&::after {
+			display: none;
+		}
+
+	}
+
+	.active {		
+		&::after {
+			content: 'Copied!';
+			position: absolute;
+			background-color: lighten(hsl(231, 18%, 21%), 20%);
+			display: inline-block !important;
+			margin-left: 10px;
+			border-radius: 0.25em;
+			padding: 0px 5px 3px 5px;
+		}
+	}
+	.hero {
+		border-radius: 50%;
+		bottom: em;
+		margin: 3.4em 3em 0 0;
+		width: 192px;
+		height: 192px;
+		transition: all 1s;
+		
+		&:hover {
+			transform: rotate(360deg);
+			// pretty cool huh?
+		}
+	}
+
+	a {
+		background-color: $color-links;
 		border-radius: 0.25em;
 		padding: 0px 5px 3px 5px;
 		font-size: 1em;
 		color: inherit;
 		text-decoration: none;
 		transition: all 170ms ease;
+
+		&:hover {
+			background-color: lighten($color-links, 30%);
+			text-decoration: none;
+		}
+
   	}
-  
-	:global(a:hover) {
-		background-color: var(--color-links-hover);
-		text-decoration: none;
+
+	h1 {
+		font-size: $font-size-xl;
 	}
 
-	:global(h1) {
-		font-size: var(--font-size-xl);
+	h2 {
+		font-size: $font-size-lg;
 	}
 
-	:global(h2) {
-		font-size: var(--font-size-lg);
+	body::-webkit-scrollbar {
+		width: 8.5px;
+
+		&-track {
+			background-color: lighten($color-bg, 5%);
+		}
+
+		&-thumb {
+			background-color: lighten($color-bg, 20%);  
+			border-radius: 20px;
+		}
 	}
 
-	:global(body::-webkit-scrollbar) {
-		width: 5px;
-	}
-
-	:global(body::-webkit-scrollbar-track) {
-		background-color: #242735;
-	}
-
-	:global(body::-webkit-scrollbar-thumb) {
-		background-color: #434860;  
-		border-radius: 20px;
-	}
-
-	:global(footer) {
+	footer {
 		bottom: 0;
 		margin-top: 3em;
 		display: grid;
 		place-items: center;
 		line-height: 1.5px;
-		background-color: var(--links-);
-	}
-
-	// I can't make this thing work :(
-	:global(.day) {
-		root:--color-bg{filter:invert(100%)}
-		root:--color-links{filter:invert(100%)}
-		root:--color-links-hover{filter:invert(100%)}
-		root:--color-text{filter:invert(100%)}}
-
-
-	@media (prefers-color-scheme:light){
-		:global(.day.light-scheme) {
-		root:--color-bg{filter:invert(100%)}
-		root:--color-links{filter:invert(100%)}
-		root:--color-links-hover{filter:invert(100%)}
-		root:--color-text{filter:invert(100%)}
-		}
 	}
 
 	@media (max-width: 768px) {
-		:global(main) {padding: 2em 2em;}}
+		main {padding: 2em 2em;}
+		.hero-section {display: block;}
+	}
 </style>

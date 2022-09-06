@@ -1,11 +1,18 @@
 ---
+import SEO from '../SEO.astro';
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
+<head>
+    <SEO
+      title="Contact - Lance Ross"
+      description="You can find my contact details and also my social media accounts here."/>  
+</head>
 
-<Layout title="Say hi to Lance Ross">
+<Layout title="Contact - Lance Ross">
 	<main>
-        <h1>Connect with me!</h1>
+        <h1>Get In Touch</h1>
+		<p>Come say hi to me or you can follow my accounts. I might not be able to reply to your email right away but I will do my best to reply!</p>
         <ul>
             <li>GitHub - <a href="https://github.com/lancerossdev" target="_blank" rel="noopener nofollow">@lancerossdev</a></li>
             <li>Twitter - <a href="https://twitter.com/lancerossdev" target="_blank" rel="noopener nofollow">@lancerossdev</a></li>
@@ -13,16 +20,17 @@ import Card from '../components/Card.astro';
 			<li>Email - <a id="tooltip" class="tooltip inactive" onclick="myFunction()">Click to copy</a></li>
         </ul><br>
 		<hr>
-		<ul role="list" class="link-card-grid">
-            <Card
+		<ul role="list" id="menu" class="link-card-grid">
+			<Card
 				href="/"
 				title="Home"
-				body="Go back to home. Now go!"
+				body="Go back to my homepage."
 			/>
 			<Card
 				href="/about"
 				title="About"
 				body="If you want to know more about me, click here."
+				
 			/>
 			<Card
 				href="/blog"
@@ -32,7 +40,7 @@ import Card from '../components/Card.astro';
 			<Card
 				href="/projects"
 				title="Projects"
-				body="Here are all my projects. I will update this every time I have new project."
+				body="Here are all my projects from my GitHub."
 			/>
 		</ul>
         <footer>
@@ -60,64 +68,3 @@ import Card from '../components/Card.astro';
 		}, 2000);
 	}
 </script>
-
-<style lang="scss">
-	h1 {
-		margin: 2rem 0;
-	}
-		
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 75ch;
-	}
-
-	.tooltip {
-		cursor: pointer;
-		user-select: none;
-
-		&::after {
-			display: none;
-		}
-
-	}
-
-	.active {		
-		&::after {
-			content: 'Copied!';
-			position: absolute;
-			background-color: lighten(hsl(231, 18%, 21%), 20%);
-			display: inline-block !important;
-			margin-left: 10px;
-			border-radius: 0.25em;
-			padding: 0px 5px 3px 5px;
-		}
-	}
-	
-	.text-gradient {
-		font-weight: 800;
-		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		-webkit-animation: hue 5s ease-in-out infinite;
-	}
-
-	@-webkit-keyframes hue {
-      from {
-        -webkit-filter: hue-rotate(0deg);
-      }
-      to {
-        -webkit-filter: hue-rotate(-360deg);
-      }
-    }
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-</style>

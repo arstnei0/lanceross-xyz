@@ -1,9 +1,15 @@
 ---
+import SEO from '../SEO.astro';
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
+<head>
+    <SEO
+      title="Projects - Lance Ross"
+      description="Here are all my projects from my GitHub account."/>  
+</head>
 
-<Layout title="Projects of Lance Ross">
+<Layout title="Projects - Lance Ross">
 	<main>
 		<h1>My Projects</h1>
 		<p>You can find here all my projects from GitHub. I usually create Web apps and Static sites.</p>
@@ -19,25 +25,21 @@ import Card from '../components/Card.astro';
 				title="Old Website"
 				body="This is my old website made with HTML, Sass and a few JavaScript."
 			/>
-			<Card
-				href="#"
-				title="Bootstrap Sass Site"
-				body="Coming soon! Maybe in a few weeks or months.."
-			/>
 		</ul>
-		<p>You can check all my projects in <a href="https://github.com/lancerossdev?tab=repositories" target="_blank" rel="noopener nofollow"></a></p>
+		<p>You can check all my projects in <a href="https://github.com/lancerossdev?tab=repositories" target="_blank" rel="noopener nofollow">GitHub</a></p>
 		<br>
 		<hr>
-		<ul role="list" class="link-card-grid">
-            <Card
+		<ul role="list" id="menu" class="link-card-grid">
+			<Card
 				href="/"
 				title="Home"
-				body="Go back to home. Now go!"
+				body="Go back to my homepage."
 			/>
 			<Card
 				href="/about"
 				title="About"
 				body="If you want to know more about me, click here."
+				
 			/>
 			<Card
 				href="/blog"
@@ -56,49 +58,3 @@ import Card from '../components/Card.astro';
         </footer>
 	</main>
 </Layout>
-
-<style lang="scss">
-	h1 {
-		margin: 2rem 0;
-	}
-		
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 75ch;
-	}
-
-	.text-gradient {
-		font-weight: 800;
-		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		-webkit-animation: hue 5s ease-in-out infinite;
-	}
-
-	@-webkit-keyframes hue {
-      from {
-        -webkit-filter: hue-rotate(0deg);
-      }
-      to {
-        -webkit-filter: hue-rotate(-360deg);
-      }
-    }
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-
-	.big-card-grid {
-		display: grid;
-		align-items: center;
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-</style>

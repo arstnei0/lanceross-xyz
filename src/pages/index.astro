@@ -1,22 +1,33 @@
 ---
+import SEO from '../SEO.astro';
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
+<head>
+    <SEO
+      title="Lance Ross - Web Developer"
+      description="I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass."
+	  canonical="https://lanceross.xyz"
+	  extend={{ meta: [{ name: "og:title", content: "Lance Ross - Web Dev" }, { name: "og:description", content: "I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass." }, { name: "twitter:title", content: "Lance Ross - Web Dev" }, { name: "twitter:description", content: "I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass." }] }}
+	  />  
+</head>
 
-<Layout title="Lance Ross">
+<Layout title="Lance Ross - Web Developer">
 	<main>
-		<article>
-			<img src="../../hero.jpg" alt="">
-		</article>
-		<h1>Hello, My name is <span class="text-gradient">Lance</span></h1>
-		<p>I am an aspiring Front-end JavaScript web developer in the Philippines building different Web applications for fun.
-		I'm currently learning <a href="https://angular.io" target="_blank" rel="noopener nofollow">Angular</a> and <a href="https://firebase.google.com" target="_blank" rel="noopener nofollow">Firebase</a> which are my favorite tools for Web development by Google.</p><br>
-		<hr>
+		<div class="hero-section">
+			<img class="hero" src="../../hero.jpg" alt="">
+			<article>
+				<h1>Hi! I'm <span class="text-gradient">Lance Ross</span></h1>
+				<p>I am an aspiring Front-end JavaScript web developer in the Philippines building different Web applications for fun.
+				I'm currently learning <a href="https://angular.io" target="_blank" rel="noopener nofollow">Angular</a> and <a href="https://firebase.google.com" target="_blank" rel="noopener nofollow">Firebase</a> which are my favorite tools for Web development by Google.</p>
+			</article>
+		</div>
 		<ul role="list" id="menu" class="link-card-grid">
 			<Card
 				href="/about"
 				title="About"
 				body="If you want to know more about me, click here."
+				
 			/>
 			<Card
 				href="/blog"
@@ -26,7 +37,7 @@ import Card from '../components/Card.astro';
 			<Card
 				href="/projects"
 				title="Projects"
-				body="Here are all my projects. I will update this every time I have new project."
+				body="Here are all my projects from my GitHub."
 			/>
 			<Card
 				href="/contact"
@@ -40,57 +51,3 @@ import Card from '../components/Card.astro';
         </footer>
 	</main>
 </Layout>
-
-<style lang="scss">
-	h1 {
-		margin: 2rem 0;
-	}
-		
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 75ch;
-	}
-
-	img {
-		margin-top: 1.35em;
-		border-radius: 50%;
-		display: flex;
-		justify-content: flex-end;
-		width: 192px;
-		height: 192px;
-		transition: all 1s;
-		
-		&:hover {
-			transform: rotate(360deg);
-			// pretty cool huh?
-		}
-	}
-
-	.text-gradient {
-		font-weight: 800;
-		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		-webkit-animation: hue 5s ease-in-out infinite;
-	}
-
-	@-webkit-keyframes hue {
-      from {
-        -webkit-filter: hue-rotate(0deg);
-      }
-      to {
-        -webkit-filter: hue-rotate(-360deg);
-      }
-    }
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-</style>

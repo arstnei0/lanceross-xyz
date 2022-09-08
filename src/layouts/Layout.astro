@@ -5,6 +5,7 @@ export interface Props {
 
 const { title } = Astro.props;
 ---
+<script defer src="../../script.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,15 +23,10 @@ const { title } = Astro.props;
 <style is:global lang="scss">
 	$font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.57rem);
 	$font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-	$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.54rem);
+	$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.52rem);
 	$color-text: hsl(215, 20%, 88%);
-	$color-links: hsl(231, 18%, 21%);
+	$color-links: hsl(229, 18%, 17%);
 	$color-bg: hsl(228, 21%, 9%);
-	$color-border: hsl(17, 24%, 90%);
-	:root {
-		--color-border: hsl(17, 24%, 90%); 
-		// I can't implement this with SCSS..
-	}
 
 	@font-face {
 		font-family: 'Poppins';
@@ -42,12 +38,9 @@ const { title } = Astro.props;
 
 	html {
 		font-family: Poppins, sans-serif;
-		font-size: $font-size-base;
-		color: $color-text;
-		background: $color-bg;
-		background-repeat: no-repeat;
-		background-size: 600% 600%;
 		scroll-behavior: smooth;
+		transition: all 50ms;
+		transition: background 0.5s;
 	}
 
 	::selection {
@@ -56,6 +49,9 @@ const { title } = Astro.props;
 	}
 
 	body {
+		font-size: $font-size-base;
+		color: $color-text;
+		background: $color-bg;
 		margin: 0;
 		will-change: transform;
 	}
@@ -80,6 +76,48 @@ const { title } = Astro.props;
       }
     }
 
+	.light-mode-toggle {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		filter: invert(100%);
+		padding: 4px;
+		background: transparent;
+		cursor: pointer;
+		width: 36px;
+		height: 36px;
+
+		&:hover {
+			filter: invert(50%);
+		}
+	}
+
+	.github-logo{
+		position: absolute;
+		top: 1.15em;
+		right: 3.35em;
+		filter: invert(100%);
+		padding: 4px;
+		background: transparent;
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		transition: all 170ms ease;
+
+		&:hover {
+			filter: invert(50%);
+		}
+	}
+
+	.href-image {
+		background: none;
+
+		&:hover {
+			background: none;
+			transition: all 170ms ease;
+		}
+	}
+
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
@@ -97,6 +135,7 @@ const { title } = Astro.props;
 	.hero-section {
 		display: flex;
 		justify-content: space-evenly;
+		margin-top: 1em;
 	}
 
 	main {
@@ -104,53 +143,31 @@ const { title } = Astro.props;
 		padding: 1em;
 		max-width: 43.45em;
 	}
-
-	.tooltip {
-		cursor: pointer;
-		user-select: none;
-
-		&::after {
-			display: none;
-		}
-
-	}
-
-	.active {		
-		&::after {
-			content: 'Copied!';
-			position: absolute;
-			background-color: lighten(hsl(231, 18%, 21%), 20%);
-			display: inline-block !important;
-			margin-left: 10px;
-			border-radius: 0.25em;
-			padding: 0px 5px 3px 5px;
-		}
-	}
 	.hero {
 		border-radius: 50%;
-		bottom: em;
-		margin: 3.4em 3em 0 0;
+		margin: 2.5em 3em 0 0;
 		width: 192px;
 		height: 192px;
 		transition: all 1s;
 		
 		&:hover {
 			transform: rotate(360deg);
-			// pretty cool huh?
 		}
 	}
 
 	a {
 		background-color: $color-links;
 		border-radius: 0.25em;
-		padding: 0px 5px 3px 5px;
+		padding: 0px 5px 2px 5px;
 		font-size: 1em;
 		color: inherit;
 		text-decoration: none;
 		transition: all 170ms ease;
+		cursor: pointer;
+		user-select: none;
 
 		&:hover {
-			background-color: lighten($color-links, 30%);
+			background-color: lighten($color-links, 10%);
 			text-decoration: none;
 		}
 
@@ -186,7 +203,43 @@ const { title } = Astro.props;
 	}
 
 	@media (max-width: 768px) {
-		main {padding: 2em 2em;}
-		.hero-section {display: block;}
+		main {
+			padding: 2em 2em;
+		}
+		.hero-section {
+			display: block;
+		}
+
+		.light-mode-toggle {
+			top: 1.05em;
+			width: 30px;
+			height: 30px;
+		}
+
+		.github-logo{
+			width: 26px;
+			height: 26px;
+		}
+
+	}
+
+	@media (prefers-color-scheme: light) {
+		html, img {
+			filter: invert(100%);
+			transition: background 0.5s;
+		}
+
+		body::-webkit-scrollbar {
+			width: 8.5px;
+
+			&-track {
+				background-color: invert($color-bg, 85%);
+			}
+
+			&-thumb {
+				background-color: invert($color-bg, 65%);  
+				border-radius: 20px;
+			}
+		}
 	}
 </style>

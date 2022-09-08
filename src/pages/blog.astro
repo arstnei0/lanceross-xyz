@@ -1,54 +1,110 @@
 ---
-import SEO from '../SEO.astro';
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import SEO from "../SEO.astro";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import BigCard from "../components/BigCard.astro";
 ---
-<head>
-    <SEO
-      title="Blog - Lance Ross"
-      description="This is where you can find my blogs from Dev Community (dev.to)."/>  
-</head>
 
-<Layout title="Blog - Lance Ross">
-	<main>
-		<h1>Welcome to my blog</h1>
-		<p>You can find my blogs on my <a href="https://dev.to/lanceross" target="_blank" rel="noopener nofollow">Dev Community</a> because I don't really know how to set up a Headless CMS on my website..</p>
-		<p>I don't know how to customize the project cards so this design will work for now..</p>
-		<ul role="list" class="big-card-grid">
-			<Card
-				href="https://dev.to/lanceross/hello-20gp/"
-				title="Hello! - Aug 10 2022"
-				body="Hello all! I am Lance and I just started to learn Web Development and also created my dev.to just a few weeks ago..."
-			/>
-		</ul>
-		<br>
-		<hr>
-		<ul role="list" id="menu" class="link-card-grid">
-			<Card
-				href="/"
-				title="Home"
-				body="Go back to my homepage."
-			/>
-			<Card
-				href="/about"
-				title="About"
-				body="If you want to know more about me, click here."
-				
-			/>
-			<Card
-				href="/projects"
-				title="Projects"
-				body="Here are all my projects from my GitHub."
-			/>
-			<Card
-				href="/contact"
-				title="Contact"
-				body="Come say hi to me and follow with my socials!"
-			/>
-		</ul>
-        <footer>
-            <p>Designed and built by Lance Ross</p>
-            <p>Built using <a href="https://astro.build" target="_blank" rel="noopener nofollow">Astro</a> and <a href="https://sass-lang.com/" target="_blank" rel="noopener nofollow">Sass</a></p>
-        </footer>
-	</main>
-</Layout>
+<html>
+    <head>
+        <SEO
+            title="Blog - Lance Ross"
+            description="This is where you can find my blogs from Dev Community (dev.to)."
+        />
+        <!-- Google tag (gtag.js) -->
+        <script
+            type="text/partytown"
+            src="https://www.googletagmanager.com/gtag/js?id=G-ZHW2LJ8BYB"
+        ></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-ZHW2LJ8BYB");
+        </script>
+        <script src="../../script.js" defer></script>
+    </head>
+    <body class="lightmode">
+        <main>
+            <a
+                class="href-image"
+                href="https://github.com/lancerossdev/lanceross-xyz"
+                target="_blank"
+                rel="noopener nofollow"
+                ><img
+                    class="github-logo"
+                    src="../../github.svg"
+                    alt="github logo"
+                />
+            </a>
+            <img
+                id="light-mode-toggle"
+                class="light-mode-toggle"
+                src="../../toggle.svg"
+                alt="change theme button"
+				onclick="lightTheme()"
+            />
+            <h1>Welcome to my blog</h1>
+            <p>
+                You can find my blogs on my <a
+                    href="https://dev.to/lanceross"
+                    target="_blank"
+                    rel="noopener nofollow">Dev Community</a
+                > because I don't want to setup another folder for blogs. I don't
+                know how to customize the project cards so this design will work
+                for now..
+            </p>
+            <ul role="list" class="big-card-grid">
+                <BigCard
+                    href="https://dev.to/lanceross/i-found-an-alternative-with-mailto-links-50kg"
+                    title="I found an alternative with mailto links - Sep 8 2022"
+                    body="So, I found an alternative way of putting your email address on your website without mailto links using JavaScript..."
+                />
+                <BigCard
+                    href="https://dev.to/lanceross/i-cant-really-decide-2i0c"
+                    title="I can't really decide - Sep 8 2022"
+                    body="So, I'm on my journey in #100DaysOfCode, and after learning Vanilla CSS and Sass, I decided to learn my very first CSS Framework..."
+                />
+                <BigCard
+                    href="https://dev.to/lanceross/hello-20gp/"
+                    title="Hello! - Aug 10 2022"
+                    body="Hello all! I am Lance and I just started to learn Web Development and also created my dev.to just a few weeks ago..."
+                />
+            </ul><br />
+            <ul role="list" id="menu" class="link-card-grid">
+                <Card href="/" title="Home" body="Go back to my homepage." />
+                <Card
+                    href="/about"
+                    title="About"
+                    body="If you want to know stuff about me."
+                />
+                <Card
+                    href="/projects"
+                    title="Projects"
+                    body="All my projects from my GitHub."
+                />
+                <Card
+                    href="/contact"
+                    title="Contact"
+                    body="Come say hi to me on my socials!"
+                />
+            </ul>
+            <footer>
+                <p>Designed and built by Lance Ross</p>
+                <p>
+                    Built using <a
+                        href="https://astro.build"
+                        target="_blank"
+                        rel="noopener nofollow">Astro</a
+                    > and <a
+                        href="https://sass-lang.com/"
+                        target="_blank"
+                        rel="noopener nofollow">Sass</a
+                    >
+                </p>
+            </footer>
+        </main>
+    </body>
+</html>

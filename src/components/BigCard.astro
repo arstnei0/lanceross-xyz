@@ -9,7 +9,7 @@ const { href, title, body } = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
+	<a href={href} target="_blank" rel="noopener">
 		<h2>
 			{title}
 		</h2>
@@ -31,7 +31,6 @@ const { href, title, body } = Astro.props;
 		
 		&:hover {
 			animation: fade 5s infinite ease-in-out;
-			transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		}
 	}
 

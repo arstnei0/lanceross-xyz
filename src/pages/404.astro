@@ -1,50 +1,89 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
+
+<!-- Google tag (gtag.js) -->
+<script
+    type="text/partytown"
+    src="https://www.googletagmanager.com/gtag/js?id=G-ZHW2LJ8BYB"
+></script>
+<script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-ZHW2LJ8BYB");
+</script>
+<script src="../../script.js" defer></script>
 <Layout title="404 Error">
-	<main>
+    <main>
+        <a
+            class="href-image"
+            href="https://github.com/lancerossdev/lanceross-xyz"
+            target="_blank"
+            rel="noopener nofollow"
+            ><img
+                class="github-logo"
+                src="../../github.svg"
+                alt="github logo"
+            />
+        </a>
+        <img
+            id="light-mode-toggle"
+            class="light-mode-toggle"
+            src="../../toggle.svg"
+            alt="change theme button"
+        />
         <div class="how-to-center-a-div">
             <h1><span class="text-gradient">404</span> Error</h1>
             <h2>Sorry, it doesn't exist.</h2>
         </div>
-		<br>
-		<hr>
-		<ul role="list" id="menu" class="link-card-grid">
-			<Card
-				href="/about"
-				title="About"
-				body="If you want to know more about me, click here."
-				
-			/>
-			<Card
-				href="/blog"
-				title="Blog"
-				body="I have a blog on Dev Community! You should visit it."
-			/>
-			<Card
-				href="/projects"
-				title="Projects"
-				body="Here are all my projects from my GitHub."
-			/>
-			<Card
-				href="/contact"
-				title="Contact"
-				body="Come say hi to me and follow with my socials!"
-			/>
-		</ul>
+        <br />
+        <ul role="list" id="menu" class="link-card-grid">
+            <Card
+                href="/about"
+                title="About"
+                body="If you want to know stuff about me."
+            />
+            <Card
+                href="/blog"
+                title="Blog"
+                body="All my blog posts on dev.to"
+            />
+            <Card
+                href="/projects"
+                title="Projects"
+                body="All my projects from my GitHub."
+            />
+            <Card
+                href="/contact"
+                title="Contact"
+                body="Come say hi to me on my socials!"
+            />
+        </ul>
         <footer>
             <p>Designed and built by Lance Ross</p>
-            <p>Built using <a href="https://astro.build" target="_blank" rel="noopener nofollow">Astro</a> and <a href="https://sass-lang.com/" target="_blank" rel="noopener nofollow">Sass</a></p>
+            <p>
+                Built using <a
+                    href="https://astro.build"
+                    target="_blank"
+                    rel="noopener nofollow">Astro</a
+                > and <a
+                    href="https://sass-lang.com/"
+                    target="_blank"
+                    rel="noopener nofollow">Sass</a
+                >
+            </p>
         </footer>
-	</main>
+    </main>
 </Layout>
-
 <style lang="scss">
-	h1 {
-		margin: .5em 0 0 0;
+    h1 {
+        margin: 0.5em 0 0 0;
         font-size: clamp(2.8rem, 2.38vw + 2.5rem, 3.6rem) !important;
-	}
+    }
 
     .how-to-center-a-div {
         display: grid;

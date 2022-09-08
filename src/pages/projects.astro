@@ -1,60 +1,98 @@
 ---
-import SEO from '../SEO.astro';
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import SEO from "../SEO.astro";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import BigCard from "../components/BigCard.astro";
 ---
+
 <head>
     <SEO
-      title="Projects - Lance Ross"
-      description="Here are all my projects from my GitHub account."/>  
+        title="Projects - Lance Ross"
+        description="Here are all my projects from my GitHub account."
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+        type="text/partytown"
+        src="https://www.googletagmanager.com/gtag/js?id=G-ZHW2LJ8BYB"
+    ></script>
+    <script type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-ZHW2LJ8BYB");
+    </script>
+    <script src="../../script.js" defer></script>
 </head>
 
 <Layout title="Projects - Lance Ross">
-	<main>
-		<h1>My Projects</h1>
-		<p>You can find here all my projects from GitHub. I usually create Web apps and Static sites.</p>
-		<p>I don't know how to customize the project cards so this design will work for now..</p>
-		<ul role="list" class="big-card-grid">
-			<Card
-				href="https://github.com/lancerossdev/lanceross-xyz/"
-				title="lanceross.xyz"
-				body="This is my new website which you are looking right now!"
-			/>
-			<Card
-				href="https://github.com/lancerossdev/old-website/"
-				title="Old Website"
-				body="This is my old website made with HTML, Sass and a few JavaScript."
-			/>
-		</ul>
-		<p>You can check all my projects in <a href="https://github.com/lancerossdev?tab=repositories" target="_blank" rel="noopener nofollow">GitHub</a></p>
-		<br>
-		<hr>
-		<ul role="list" id="menu" class="link-card-grid">
-			<Card
-				href="/"
-				title="Home"
-				body="Go back to my homepage."
-			/>
-			<Card
-				href="/about"
-				title="About"
-				body="If you want to know more about me, click here."
-				
-			/>
-			<Card
-				href="/blog"
-				title="Blog"
-				body="I have a blog on Dev Community! You should visit it."
-			/>
-			<Card
-				href="/contact"
-				title="Contact"
-				body="Come say hi to me and follow with my socials!"
-			/>
-		</ul>
+    <main>
+        <a
+            class="href-image"
+            href="https://github.com/lancerossdev/lanceross-xyz"
+            target="_blank"
+            rel="noopener nofollow"
+            ><img
+                class="github-logo"
+                src="../../github.svg"
+                alt="github logo"
+            />
+        </a>
+        <img
+            id="light-mode-toggle"
+            class="light-mode-toggle"
+            src="../../toggle.svg"
+            alt="change theme button"
+        />
+        <h1>My Projects</h1>
+        <p>
+            You can find here all my projects from GitHub. I usually create Web
+            apps and Static sites. I don't know how to customize the project
+            cards so this design will work for now. You can check all my
+            projects in <a
+                href="https://github.com/lancerossdev?tab=repositories"
+                target="_blank"
+                rel="noopener nofollow">GitHub</a
+            >.
+        </p>
+        <ul role="list" class="big-card-grid">
+            <BigCard
+                href="https://github.com/lancerossdev/lanceross-xyz/"
+                title="lanceross-xyz"
+                body="This is my new website which you are looking right now!"
+            />
+            <BigCard
+                href="https://github.com/lancerossdev/old-website/"
+                title="old-website"
+                body="This is my old website made with HTML, Sass and a few JavaScript."
+            />
+        </ul><br />
+        <ul role="list" id="menu" class="link-card-grid">
+            <Card href="/" title="Home" body="Go back to my homepage." />
+            <Card
+                href="/about"
+                title="About"
+                body="If you want to know stuff about me."
+            />
+            <Card
+                href="/blog"
+                title="Blog"
+                body="All my blog posts on dev.to"
+            />
+            <Card
+                href="/contact"
+                title="Contact"
+                body="Come say hi to me on my socials!"
+            />
+        </ul>
         <footer>
             <p>Designed and built by Lance Ross</p>
-            <p>Built using <a href="https://astro.build" target="_blank">Astro</a> and <a href="https://sass-lang.com/" target="_blank">Sass</a></p>
+            <p>
+                Built using <a href="https://astro.build" target="_blank"
+                    >Astro</a
+                > and <a href="https://sass-lang.com/" target="_blank">Sass</a>
+            </p>
         </footer>
-	</main>
+    </main>
 </Layout>

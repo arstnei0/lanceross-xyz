@@ -13,9 +13,5 @@
     "@astrojs/partytown": "^1.0.0",
     "astro": "^1.1.2",
     "sass": "^1.54.8"
-  },
-  "dependencies": {
-    "firebase": "^9.9.3",
-    "firebase-tools": "^11.8.0"
   }
 }

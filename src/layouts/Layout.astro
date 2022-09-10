@@ -1,245 +1,51 @@
 ---
 export interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
-<script defer src="../../script.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <slot />
+        <style is:global lang="scss">
+            $font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.57rem);
+            $font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+            $font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.52rem);
+            $color-text: hsl(215, 20%, 88%);
+            $color-links: hsl(229, 18%, 17%);
+            $color-bg: hsl(228, 21%, 9%);
+
+            @font-face {
+                font-family: "Poppins";
+                src: url("../fonts/Poppins.woff") format("woff");
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+            }
+
+            .link-card-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+                gap: 1rem;
+                padding: 1em 0 0 0;
+            }
+
+            .big-card-grid {
+                display: grid;
+                align-items: center;
+                gap: 1rem;
+                padding: 1em 0 0 0;
+            }
+        </style>
+    </body>
 </html>
-<style is:global lang="scss">
-	$font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.57rem);
-	$font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-	$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.52rem);
-	$color-text: hsl(215, 20%, 88%);
-	$color-links: hsl(229, 18%, 17%);
-	$color-bg: hsl(228, 21%, 9%);
-
-	@font-face {
-		font-family: 'Poppins';
-		src: url('../fonts/Poppins.woff') format('woff');
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	html {
-		font-family: Poppins, sans-serif;
-		scroll-behavior: smooth;
-		transition: all 50ms;
-		transition: background 0.5s;
-	}
-
-	::selection {
-		background-color: lighten($color-bg, 30%);
-		color: #FFF;
-	}
-
-	body {
-		font-size: $font-size-base;
-		color: $color-text;
-		background: $color-bg;
-		margin: 0;
-		will-change: transform;
-	}
-
-	.text-gradient {
-		font-weight: 800;
-		background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		-webkit-animation: hue 5s ease-in-out infinite;
-	}
-
-	@-webkit-keyframes hue {
-      from {
-        -webkit-filter: hue-rotate(0deg);
-      }
-      to {
-        -webkit-filter: hue-rotate(-360deg);
-      }
-    }
-
-	.light-mode-toggle {
-		position: absolute;
-		top: 1em;
-		right: 1em;
-		filter: invert(100%);
-		padding: 4px;
-		background: transparent;
-		cursor: pointer;
-		width: 36px;
-		height: 36px;
-
-		&:hover {
-			filter: invert(50%);
-		}
-	}
-
-	.github-logo{
-		position: absolute;
-		top: 1.15em;
-		right: 3.35em;
-		filter: invert(100%);
-		padding: 4px;
-		background: transparent;
-		cursor: pointer;
-		width: 30px;
-		height: 30px;
-		transition: all 170ms ease;
-
-		&:hover {
-			filter: invert(50%);
-		}
-	}
-
-	.href-image {
-		background: none;
-
-		&:hover {
-			background: none;
-			transition: all 170ms ease;
-		}
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-
-	.big-card-grid {
-		display: grid;
-		align-items: center;
-		gap: 1rem;
-		padding: 1em 0 0 0;
-	}
-
-	.hero-section {
-		display: flex;
-		justify-content: space-evenly;
-		margin-top: 1em;
-	}
-
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 43.45em;
-	}
-	.hero {
-		border-radius: 50%;
-		margin: 2.5em 3em 0 0;
-		width: 192px;
-		height: 192px;
-		transition: all 1s;
-		
-		&:hover {
-			transform: rotate(360deg);
-		}
-	}
-
-	a {
-		background-color: $color-links;
-		border-radius: 0.25em;
-		padding: 0px 5px 2px 5px;
-		font-size: 1em;
-		color: inherit;
-		text-decoration: none;
-		transition: all 170ms ease;
-		cursor: pointer;
-		user-select: none;
-
-		&:hover {
-			background-color: lighten($color-links, 10%);
-			text-decoration: none;
-		}
-
-  	}
-
-	h1 {
-		font-size: $font-size-xl;
-	}
-
-	h2 {
-		font-size: $font-size-lg;
-	}
-
-	body::-webkit-scrollbar {
-		width: 8.5px;
-
-		&-track {
-			background-color: lighten($color-bg, 5%);
-		}
-
-		&-thumb {
-			background-color: lighten($color-bg, 20%);  
-			border-radius: 20px;
-		}
-	}
-
-	footer {
-		bottom: 0;
-		margin-top: 3em;
-		display: grid;
-		place-items: center;
-		line-height: 1.5px;
-	}
-
-	@media (max-width: 768px) {
-		main {
-			padding: 2em 2em;
-		}
-		.hero-section {
-			display: block;
-		}
-
-		.light-mode-toggle {
-			top: 1.05em;
-			width: 30px;
-			height: 30px;
-		}
-
-		.github-logo{
-			width: 26px;
-			height: 26px;
-		}
-
-	}
-
-	@media (prefers-color-scheme: light) {
-		html, img {
-			filter: invert(100%);
-			transition: background 0.5s;
-		}
-
-		body::-webkit-scrollbar {
-			width: 8.5px;
-
-			&-track {
-				background-color: invert($color-bg, 85%);
-			}
-
-			&-thumb {
-				background-color: invert($color-bg, 65%);  
-				border-radius: 20px;
-			}
-		}
-	}
-</style>

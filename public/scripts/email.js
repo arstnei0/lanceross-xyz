@@ -1,7 +1,5 @@
 document.getElementById("tooltip").innerHTML = "Click to copy";
 
-// Click to copy email
-
 function getEmail() {
     let email = "zyx.ssorecnal@ecnal";
 

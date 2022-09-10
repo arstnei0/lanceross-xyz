@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import "../styles/main.scss";
 ---
 
 <!-- Google tag (gtag.js) -->
@@ -16,7 +17,7 @@ import Card from "../components/Card.astro";
     gtag("js", new Date());
     gtag("config", "G-SYR794VMMQ");
 </script>
-<script src="../../script.js" defer></script>
+<script src="../../scripts/theme.js" defer></script>
 <Layout title="404 Error">
     <main>
         <a
@@ -26,15 +27,16 @@ import Card from "../components/Card.astro";
             rel="noopener nofollow"
             ><img
                 class="github-logo"
-                src="../../github.svg"
+                src="../../images/github.svg"
                 alt="github logo"
             />
         </a>
         <img
             id="light-mode-toggle"
             class="light-mode-toggle"
-            src="../../toggle.svg"
+            src="../../images/toggle.svg"
             alt="change theme button"
+            onclick="themeToggle()"
         />
         <div class="how-to-center-a-div">
             <h1><span class="text-gradient">404</span> Error</h1>

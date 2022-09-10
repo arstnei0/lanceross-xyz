@@ -38,14 +38,18 @@ body {
     }
 
     a {
-        background-color: invert($color-links, 90%);
+        background-color: invert($card-background, 90%) !important;
         color: inherit;
 
         &:hover {
-            background-color: invert($color-links, 100%);
+            background-color: invert($color-links, 100%) !important;
             text-decoration: none;
         }
     }
+}
+
+a#href-image {
+    background: none !important;
 }
 
 .lightmode::-webkit-scrollbar {

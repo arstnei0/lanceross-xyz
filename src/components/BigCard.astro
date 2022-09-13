@@ -20,20 +20,7 @@ const { href, title, body } = Astro.props;
 </li>
 <style lang="scss">
     $card-background: rgb(14, 16, 23);
-
-    .lightmode {
-        .link-card {
-            a {
-                background-color: invert($card-background, 100%);
-                opacity: 1;
-
-                &:hover {
-                    background-color: invert($card-background, 95%);
-                }
-            }
-        }
-    }
-
+    
     .link-card {
         list-style: none;
         display: flex;

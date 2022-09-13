@@ -6,10 +6,50 @@ $color-links: hsl(229, 18%, 17%);
 $color-bg: hsl(228, 21%, 9%);
 $card-background: rgb(14, 16, 23);
 
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@mixin hue-gradient {
+    background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    border-radius: 0.4rem;
+    -webkit-animation: hue 5s ease-in-out infinite;
+}
+
+@mixin smol-buttons {
+    position: absolute;
+    filter: invert(100%);
+    background: transparent;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 1em 0 0 0;
+}
+
+.big-card-grid {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    padding: 1em 0 0 0;
+}
+
 html {
     font-family: Poppins, sans-serif;
     scroll-behavior: smooth;
-    transition: all 50ms;
+    transition: all 50ms ease-in-out;
     transition: background 0.5s;
 }
 
@@ -24,16 +64,20 @@ body {
     background: $color-bg;
     margin: 0;
     will-change: transform;
-    transition: background 400ms;
+    transition: background 300ms;
 }
 
+// please don't touch anything here inside the .lightmode
+// it took me many hours just to make dark mode work on my site
 .lightmode {
     color: invert($color-text, 100%);
     background: invert($color-bg, 100%);
-    transition: background 400ms;
+    transition: background 300ms;
 
     .github-logo,
-    .light-mode-toggle {
+    .light-mode-toggle,
+    #back-btn,
+    .social-icons {
         filter: invert(0%);
     }
 
@@ -48,13 +92,12 @@ body {
     }
 }
 
-a#href-image {
+// including this too..
+a#href-image, #no-bg {
     background: none !important;
 }
 
 .lightmode::-webkit-scrollbar {
-    width: 8.5px;
-
     &-track {
         background-color: invert($color-bg, 85%) !important;
     }
@@ -62,18 +105,16 @@ a#href-image {
     &-thumb {
         background-color: invert($color-bg, 65%) !important;
         border-radius: 20px;
+
+        &:hover {
+            background-color: invert($color-bg, 50%) !important;
+        }
     }
 }
 
 .text-gradient {
     font-weight: 800;
-    background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 100% 200%;
-    background-position-y: 100%;
-    border-radius: 0.4rem;
-    -webkit-animation: hue 5s ease-in-out infinite;
+    @include hue-gradient;
 }
 
 @-webkit-keyframes hue {
@@ -85,37 +126,34 @@ a#href-image {
     }
 }
 
-.light-mode-toggle {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    filter: invert(100%);
-    padding: 4px;
-    background: transparent;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
+#back-btn {
+    left: 0.5em;
+    padding: 12px 0 0 4px;
+    width: 48px;
+    height: 48px;
+    @include smol-buttons;
+    background: none !important;
 
     &:hover {
-        filter: invert(50%);
+        background: none !important;
     }
 }
 
-.github-logo {
-    position: absolute;
-    top: 1.15em;
-    right: 3.35em;
-    filter: invert(100%);
-    padding: 4px;
-    background: transparent;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    transition: all 170ms ease;
+.light-mode-toggle {
+    right: 1.5em;
+    padding: 24px 0 0 4px;
+    @include smol-buttons;
+}
 
-    &:hover {
-        filter: invert(50%);
-    }
+.github-logo {
+    right: 3.65em;
+    padding: 24px 0 0 16px;
+    @include smol-buttons;
+}
+.github-logo:hover,
+.light-mode-toggle:hover,
+#back-btn:hover {
+    filter: invert(50%);
 }
 
 .href-image {
@@ -129,8 +167,14 @@ a#href-image {
 
 .hero-section {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 1em;
+}
+
+.beside {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: .5em;
 }
 
 main {
@@ -138,12 +182,13 @@ main {
     padding: 1em;
     max-width: 43.45em;
 }
+
 .hero {
     border-radius: 50%;
-    margin: 2.5em 3em 0 0;
+    margin: 1.5em 3em 0 0;
     width: 192px;
     height: 192px;
-    transition: all 1s;
+    transition: 1s;
 
     &:hover {
         transform: rotate(360deg);
@@ -159,7 +204,6 @@ a {
     text-decoration: none;
     transition: all 170ms ease;
     cursor: pointer;
-    user-select: none;
 
     &:hover {
         background-color: lighten($color-links, 10%);
@@ -169,6 +213,11 @@ a {
 
 h1 {
     font-size: $font-size-xl;
+
+    &.four-oh-four {
+        margin: 0.5em 0 0 0;
+        font-size: clamp(3.2rem, 2.38vw + 2.5rem, 3.9rem) !important;
+    }
 }
 
 h2 {
@@ -176,7 +225,7 @@ h2 {
 }
 
 body::-webkit-scrollbar {
-    width: 8.5px;
+    width: 10px;
 
     &-track {
         background-color: lighten($color-bg, 5%);
@@ -185,6 +234,10 @@ body::-webkit-scrollbar {
     &-thumb {
         background-color: lighten($color-bg, 20%);
         border-radius: 20px;
+
+        &:hover {
+            background-color: lighten($color-bg, 30%);
+        }
     }
 }
 
@@ -204,14 +257,12 @@ footer {
         display: block;
     }
 
+    .github-logo,
     .light-mode-toggle {
-        top: 1.05em;
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
     }
-
     .github-logo {
-        width: 26px;
-        height: 26px;
+        padding-right: 6px;
     }
 }

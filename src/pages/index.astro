@@ -1,117 +1,20 @@
 ---
-import SEO from "../SEO.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import '../styles/main.scss';
+import "../styles/main.scss";
 ---
 
-<head>
-    <SEO
-        title="Lance Ross - Web Developer"
-        description="I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass."
-        canonical="https://lanceross.xyz"
-        extend={{
-            meta: [
-                { name: "og:title", content: "Lance Ross - Web Dev" },
-                {
-                    name: "og:description",
-                    content:
-                        "I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass.",
-                },
-                { name: "twitter:title", content: "Lance Ross - Web Dev" },
-                {
-                    name: "twitter:description",
-                    content:
-                        "I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass.",
-                },
-            ],
-        }}
-    />
-    <script src="../../scripts/theme.js" defer></script>
-</head>
-
-<Layout title="Lance Ross - Web Developer">
-    <body>
-        <main>
-            <a
-                id="href-image"
-                href="https://github.com/lancerossdev/lanceross-xyz"
-                target="_blank"
-                rel="noopener nofollow"
-                ><img
-                    class="github-logo"
-                    src="../../images/github.svg"
-                    alt="github logo"
-                />
-            </a>
-            <img
-                id="light-mode-toggle"
-                class="light-mode-toggle"
-                src="../../images/toggle.svg"
-                alt="change theme button"
-                onclick="themeToggle()"
-            />
-            <div class="hero-section">
-                <img
-                    class="hero"
-                    src="../../images/hero.jpg"
-                    alt="smol ame starting at the screen"
-                />
-                <article>
-                    <h1>
-                        Hello! I'm <span class="text-gradient">Lance Ross</span>
-                    </h1>
-                    <p>
-                        I am an aspiring Front-end JavaScript web developer in
-                        the Philippines building different Web applications for
-                        fun. I'm currently learning <a
-                            href="https://tailwindcss.com"
-                            target="_blank"
-                            rel="noopener nofollow">Tailwind</a
-                        > and <a
-                            href="https://firebase.google.com"
-                            target="_blank"
-                            rel="noopener nofollow">Firebase</a
-                        > which are my favorite tools for Web development.
-                    </p>
-                </article>
-            </div>
-            <ul role="list" id="menu" class="link-card-grid">
-                <Card
-                    href="/about"
-                    title="About"
-                    body="If you want to know stuff about me."
-                />
-                <Card
-                    href="/blog"
-                    title="Blog"
-                    body="All my blog posts on dev.to"
-                />
-                <Card
-                    href="/projects"
-                    title="Projects"
-                    body="All my projects from my GitHub."
-                />
-                <Card
-                    href="/contact"
-                    title="Contact"
-                    body="Come say hi to me on my socials!"
-                />
-            </ul>
-            <footer>
-                <p>Designed and built by Lance Ross</p>
-                <p>
-                    Built using <a
-                        href="https://astro.build"
-                        target="_blank"
-                        rel="noopener nofollow">Astro</a
-                    > and <a
-                        href="https://sass-lang.com/"
-                        target="_blank"
-                        rel="noopener nofollow">Sass</a
-                    >
-                </p>
-            </footer>
-        </main>
-    </body>
+<Layout description="I am an aspiring Front-end JavaScript web developer in the Philippines. This is my website made in Astro and Sass.">
+    <div class="hero-section">
+        <img class="hero" src="../../images/hero.jpg" alt="smol ame starting" />
+        <article>
+            <h1>
+                Hello! I'm <span class="text-gradient">Lance Ross</span>
+            </h1>
+            <p>
+                Welcome to my home on the internet. I am an
+                aspiring web developer in the Philippines building
+                different projects for fun when not busy with school.
+            </p>
+        </article>
+    </div>
 </Layout>

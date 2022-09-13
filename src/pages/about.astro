@@ -1,146 +1,35 @@
 ---
-import SEO from "../SEO.astro";
+import Icons from "../components/Icons.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import '../styles/main.scss';
+import "../styles/main.scss";
 ---
 
-<head>
-    <SEO
-        title="About - Lance Ross"
-        description="I'm Lance, a front-end web developer based in Philippines. You can find more about me here."
-    />
-    <script src="../../scripts/theme.js" defer></script>
-</head>
-<Layout title="About - Lance Ross">
-    <main>
-        <a
-            id="href-image"
-            href="https://github.com/lancerossdev/lanceross-xyz"
-            target="_blank"
-            rel="noopener nofollow"
-            ><img
-                class="github-logo"
-                src="../../images/github.svg"
-                alt="github logo"
-            />
-        </a>
-        <img
-            id="light-mode-toggle"
-            class="light-mode-toggle"
-            src="../../images/toggle.svg"
-            alt="change theme button"
-            onclick="themeToggle()"
-        />
-        <h1>About Me</h1>
-        <p>
-            I'm Lance, a front-end web developer based in the Philippines. I
-            enjoy building projects using good ol' HTML, CSS, and JavaScript.
-            I'm currently learning different Web frameworks like <a
-                href="https://tailwindcss.com"
-                target="_blank"
-                rel="noopener nofollow">Tailwind</a
-            > and <a
-                href="https://firebase.google.com"
-                target="_blank"
-                rel="noopener nofollow">Firebase</a
-            > which are my favorite tools.
-        </p>
-        <p>
-            When not busy with doing web development stuff, I play different
-            video games, try to how to play a guitar, and does exercises every
-            other day.
-        </p>
-        <h1>Skills</h1>
-        <h2>Programming Languages</h2>
-        <ul>
-            <li>
-                <a
-                    href="https://python.org/"
-                    target="_blank"
-                    rel="noopener nofollow">Python</a
-                > - I learned this language just for fun and as a hobby.
-            </li>
-            <li>
-                <a
-                    href="https://javascript.com"
-                    target="_blank"
-                    rel="noopener nofollow">JavaScript</a
-                > - My favorite programming language!
-            </li>
-        </ul>
-        <h2>Web Frameworks</h2>
-        <ul>
-            <li>
-                <a
-                    href="https://tailwindcss.com"
-                    target="_blank"
-                    rel="noopener nofollow">Tailwind</a
-                > - I picked this over Bootstrap because of having control over styles.
-            </li>
-            <li>
-                <a
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener nofollow">React</a
-                > - One of my favorite JavaScript libraries! I'm going to learn this
-                soon.
-            </li>
-            <li>
-                <a
-                    href="https://firebase.google.com"
-                    target="_blank"
-                    rel="noopener nofollow">Firebase</a
-                > - I use this tool for all of my projects. I also use Vercel as
-                alternative.
-            </li>
-        </ul>
-        <h1>Biography</h1>
-        <p>
-            Lance Ross is a Web developer in the Philippines learning different
-            web frameworks like <a
-                href="https://tailwindcss.com"
-                target="_blank"
-                rel="noopener nofollow">Tailwind</a
-            > and <a
-                href="https://firebase.google.com"
-                target="_blank"
-                rel="noopener nofollow">Firebase</a
-            >. When not busy with doing web development stuff, he plays
-            different video games, learns how to play a guitar, and does
-            exercises.
-        </p>
-        <ul role="list" id="menu" class="link-card-grid">
-            <Card href="/" title="Home" body="Go back to my homepage." />
-            <Card
-                href="/blog"
-                title="Blog"
-                body="All my blog posts on dev.to"
-            />
-            <Card
-                href="/projects"
-                title="Projects"
-                body="All my projects from my GitHub."
-            />
-            <Card
-                href="/contact"
-                title="Contact"
-                body="Come say hi to me on my socials!"
-            />
-        </ul>
-        <footer>
-            <p>Designed and built by Lance Ross</p>
-            <p>
-                Built using <a
-                    href="https://astro.build"
-                    target="_blank"
-                    rel="noopener nofollow">Astro</a
-                > and <a
-                    href="https://sass-lang.com/"
-                    target="_blank"
-                    rel="noopener nofollow">Sass</a
-                >
-            </p>
-        </footer>
-    </main>
+<Layout title="About - Lance Ross" description="I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines. You can find more about me on this page.">
+    <h1>About Me</h1>
+    <p>
+        I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines. I enjoy
+        building projects using good ol' HTML, CSS, and JavaScript. I started learning more stuff about computers when I was 13 years old and decided to get a job in Web Development field when I grow up. 
+    </p>
+    <p>
+        I create websites when I have free time after school. When not busy with doing projects and schoolworks, I play different video
+        games, try to how to play a guitar, and does exercises every other day.
+    </p>
+    <h1>Skills</h1>
+    <h2>Programming Languages</h2>
+    <div class="beside">
+        <Icons logo="logos:python" text="Python" href="https://python.org" />
+        <Icons logo="logos:javascript" text="JavaScript" href="https://javascript.com" />
+        <!-- <Icons logo="typescript" text="Typescript" /> --> <!--Didn't learned TS yet.. -->
+    </div><br />
+    <h2>Libraries and Tools</h2>
+    <div class="beside">
+        <!-- <Icons logo="logos:react" text="React" /> --> <!--Didn't learned React yet.. -->
+        <Icons logo="tailwindcss" text="Tailwind CSS" href="https://tailwindcss.com" />
+        <Icons logo="logos:firebase" text="Firebase" href="https://firebase.google.com"/>
+    </div>
+    <h1>Biography</h1>
+    <p>
+        Lance Ross is a teenager in Philippines who aspires to be a web developer when he grow up. He creates websites when he has free time after school. When not busy with doing projects and schoolworks, He plays different video
+        games, try to how to play a guitar, and does exercises every other day.
+    </p>
 </Layout>

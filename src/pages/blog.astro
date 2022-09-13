@@ -1,103 +1,39 @@
 ---
-import SEO from "../SEO.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import BigCard from "../components/BigCard.astro";
-import '../styles/main.scss';
+import "../styles/main.scss";
 ---
 
-<html>
-    <head>
-        <SEO
-            title="Blog - Lance Ross"
-            description="This is where you can find my blogs from Dev Community (dev.to)."
+<Layout title="Blog - Lance Ross" description="This is where you can find my blogs from Dev Community (dev.to)">
+    <h1>Welcome to my blog</h1>
+    <p>
+        You can find my blogs on my <a
+            href="https://dev.to/lanceross"
+            target="_blank"
+            rel="noopener nofollow">Dev Community</a
+        > account because I don't want to setup another folder for blogs. Also, I'm not very good at creating blogs so don't mind about my grammar and paragraph structure.
+    </p>
+    <ul role="list" class="big-card-grid">
+        <BigCard
+            href="https://dev.to/lanceross/how-to-implement-dark-mode-on-your-own-website-7j4"
+            title="How to implement dark mode on your own website - Sep 12 2022"
+            body="There are different ways to implement Dark mode on your website using CSS and JavaScript. And, I'm going to show my few ideas on how to do it."
         />
-        <script src="../../scripts/theme.js" defer></script>
-    </head>
-    <Layout title="Blog - Lance Ross">
-        <main>
-            <a
-                id="href-image"
-                href="https://github.com/lancerossdev/lanceross-xyz"
-                target="_blank"
-                rel="noopener nofollow"
-                ><img
-                    class="github-logo"
-                    src="../../images/github.svg"
-                    alt="github logo"
-                />
-            </a>
-            <img
-                id="light-mode-toggle"
-                class="light-mode-toggle"
-                src="../../images/toggle.svg"
-                alt="change theme button"
-                onclick="themeToggle()"
-            />
-            <h1>Welcome to my blog</h1>
-            <p>
-                You can find my blogs on my <a
-                    href="https://dev.to/lanceross"
-                    target="_blank"
-                    rel="noopener nofollow">Dev Community</a
-                > because I don't want to setup another folder for blogs. I don't
-                know how to customize the project cards so this design will work
-                for now..
-            </p>
-            <ul role="list" class="big-card-grid">
-                <BigCard
-                    href="https://dev.to/lanceross/how-to-implement-dark-mode-on-your-own-website-7j4"
-                    title="How to implement dark mode on your own website - Sep 12 2022"
-                    body="There are different ways to implement Dark mode on your website using CSS and JavaScript. And, I'm going to show my few ideas on how to do it."
-                />
-                <BigCard
-                    href="https://dev.to/lanceross/i-found-an-alternative-with-mailto-links-50kg"
-                    title="I found an alternative with mailto links - Sep 8 2022"
-                    body="So, I found an alternative way of putting your email address on your website without mailto links using JavaScript..."
-                />
-                <BigCard
-                    href="https://dev.to/lanceross/i-cant-really-decide-2i0c"
-                    title="I can't really decide - Sep 8 2022"
-                    body="So, I'm on my journey in #100DaysOfCode, and after learning Vanilla CSS and Sass, I decided to learn my very first CSS Framework..."
-                />
-                <BigCard
-                    href="https://dev.to/lanceross/hello-20gp/"
-                    title="Hello! - Aug 10 2022"
-                    body="Hello all! I am Lance and I just started to learn Web Development and also created my dev.to just a few weeks ago..."
-                />
-            </ul><br />
-            <ul role="list" id="menu" class="link-card-grid">
-                <Card href="/" title="Home" body="Go back to my homepage." />
-                <Card
-                    href="/about"
-                    title="About"
-                    body="If you want to know stuff about me."
-                />
-                <Card
-                    href="/projects"
-                    title="Projects"
-                    body="All my projects from my GitHub."
-                />
-                <Card
-                    href="/contact"
-                    title="Contact"
-                    body="Come say hi to me on my socials!"
-                />
-            </ul>
-            <footer>
-                <p>Designed and built by Lance Ross</p>
-                <p>
-                    Built using <a
-                        href="https://astro.build"
-                        target="_blank"
-                        rel="noopener nofollow">Astro</a
-                    > and <a
-                        href="https://sass-lang.com/"
-                        target="_blank"
-                        rel="noopener nofollow">Sass</a
-                    >
-                </p>
-            </footer>
-        </main>
-    </Layout>
-</html>
+        <BigCard
+            href="https://dev.to/lanceross/i-found-an-alternative-with-mailto-links-50kg"
+            title="I found an alternative with mailto links - Sep 8 2022"
+            body="So, I found an alternative way of putting your email address on your website without mailto links using JavaScript..."
+        />
+        <BigCard
+            href="https://dev.to/lanceross/i-cant-really-decide-2i0c"
+            title="I can't really decide - Sep 8 2022"
+            body="So, I'm on my journey in #100DaysOfCode, and after learning Vanilla CSS and Sass, I decided to learn my very first CSS Framework..."
+        />
+        <BigCard
+            href="https://dev.to/lanceross/hello-20gp/"
+            title="Hello! - Aug 10 2022"
+            body="Hello all! I am Lance and I just started to learn Web Development and also created my dev.to just a few weeks ago..."
+        />
+    </ul><br />
+</Layout>
+ 

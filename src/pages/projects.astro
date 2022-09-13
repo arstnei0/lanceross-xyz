@@ -1,87 +1,31 @@
 ---
-import SEO from "../SEO.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+
 import BigCard from "../components/BigCard.astro";
 import "../styles/main.scss";
 ---
 
-<head>
-    <SEO
-        title="Projects - Lance Ross"
-        description="Here are all my projects from my GitHub account."
-    />
-    <script src="../../scripts/theme.js" defer></script>
-</head>
-
-<Layout title="Projects - Lance Ross">
-    <main>
-        <a
-            id="href-image"
-            href="https://github.com/lancerossdev/lanceross-xyz"
+<Layout title="Projects - Lance Ross" description="Here are all my projects from my GitHub account.">
+    <h1>My Projects</h1>
+    <p>
+        You can find here all my projects from GitHub. I usually create Web apps
+        and Static sites. I don't know how to customize the project cards so
+        this design will work for now. You can check all my projects in <a
+            href="https://github.com/lancerossdev?tab=repositories"
             target="_blank"
-            rel="noopener nofollow"
-            ><img
-                class="github-logo"
-                src="../../images/github.svg"
-                alt="github logo"
-            />
-        </a>
-        <img
-            id="light-mode-toggle"
-            class="light-mode-toggle"
-            src="../../images/toggle.svg"
-            alt="change theme button"
-            onclick="themeToggle()"
+            rel="noopener nofollow">GitHub</a
+        >.
+    </p>
+    <ul role="list" class="big-card-grid">
+        <BigCard
+            href="https://github.com/lancerossdev/lanceross-xyz/"
+            title="lanceross-xyz"
+            body="This is my new website which you are looking right now!"
         />
-        <h1>My Projects</h1>
-        <p>
-            You can find here all my projects from GitHub. I usually create Web
-            apps and Static sites. I don't know how to customize the project
-            cards so this design will work for now. You can check all my
-            projects in <a
-                href="https://github.com/lancerossdev?tab=repositories"
-                target="_blank"
-                rel="noopener nofollow">GitHub</a
-            >.
-        </p>
-        <ul role="list" class="big-card-grid">
-            <BigCard
-                href="https://github.com/lancerossdev/lanceross-xyz/"
-                title="lanceross-xyz"
-                body="This is my new website which you are looking right now!"
-            />
-            <BigCard
-                href="https://github.com/lancerossdev/old-website/"
-                title="old-website"
-                body="This is my old website made with HTML, Sass and a few JavaScript."
-            />
-        </ul><br />
-        <ul role="list" id="menu" class="link-card-grid">
-            <Card href="/" title="Home" body="Go back to my homepage." />
-            <Card
-                href="/about"
-                title="About"
-                body="If you want to know stuff about me."
-            />
-            <Card
-                href="/blog"
-                title="Blog"
-                body="All my blog posts on dev.to"
-            />
-            <Card
-                href="/contact"
-                title="Contact"
-                body="Come say hi to me on my socials!"
-            />
-        </ul>
-        <footer>
-            <p>Designed and built by Lance Ross</p>
-            <p>
-                Built using <a href="https://astro.build" target="_blank"
-                    >Astro</a
-                > and <a href="https://sass-lang.com/" target="_blank">Sass</a>
-            </p>
-        </footer>
-    </main>
+        <BigCard
+            href="https://github.com/lancerossdev/old-website/"
+            title="old-website"
+            body="This is my old website made with HTML, Sass and a few JavaScript."
+        />
+    </ul><br />
 </Layout>

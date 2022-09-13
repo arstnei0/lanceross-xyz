@@ -1,112 +1,21 @@
 ---
-import SEO from "../SEO.astro";
+import Icons from "../components/Icons.astro";
+import { Icon } from 'astro-icon';
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import '../styles/main.scss';
+import "../styles/main.scss";
 ---
 
-<head>
-    <SEO
-        title="Contact - Lance Ross"
-        description="You can find my contact details and also my social media accounts here."
-    />
+<Layout title="Contact - Lance Ross" description="You can find my contact details and also my social media accounts here.">
+    <h1>Get In Touch</h1>
+    <p>
+        Come say hi to me or you can follow my accounts. I might not be able to
+        reply right away because I have school every weekdays but I will do my best to reply on DMs and emails! If you want to email me something, <a id="tooltip" class="tooltip inactive" onclick="getEmail()">Please enable JavaScript</a>.
+    </p>
+    <div class="beside">
+        <Icons logo="twitter" href="https://twitter.com/lancerossdev" text="@lancerossdev" />
+        <Icons logo="github" href="https://github.com/lancerossdev" text="@lancerossdev"/>
+        <Icons logo="devto" href="https://dev.to/lanceross" text="@lanceross"/>
+        <Icons logo="codepen" href="https://codepen.io/lancerossdev" text="@lancerossdev" />
+    </div>
     <script src="../../scripts/email.js" defer></script>
-    <script src="../../scripts/theme.js" defer></script>
-</head>
-
-<Layout title="Contact - Lance Ross">
-    <main>
-        <a
-            id="href-image"
-            href="https://github.com/lancerossdev/lanceross-xyz"
-            target="_blank"
-            rel="noopener nofollow"
-            ><img
-                class="github-logo"
-                src="../../images/github.svg"
-                alt="github logo"
-            />
-        </a>
-        <img
-            id="light-mode-toggle"
-            class="light-mode-toggle"
-            src="../../images/toggle.svg"
-            alt="change theme button"
-            onclick="themeToggle()"
-        />
-        <h1>Get In Touch</h1>
-        <p>
-            Come say hi to me or you can follow my accounts. I might not be able
-            to reply to your email right away but I will do my best to reply!
-        </p>
-        <ul>
-            <li>
-                GitHub - <a
-                    href="https://github.com/lancerossdev"
-                    target="_blank"
-                    rel="noopener nofollow">@lancerossdev</a
-                >
-            </li>
-            <li>
-                Twitter - <a
-                    href="https://twitter.com/lancerossdev"
-                    target="_blank"
-                    rel="noopener nofollow">@lancerossdev</a
-                >
-            </li>
-            <li>
-                Dev Community - <a
-                    href="https://dev.to/lanceross"
-                    target="_blank"
-                    rel="noopener nofollow">@lanceross</a
-                >
-            </li>
-            <li>
-                Codepen - <a
-                    href="https://codepen.io/lancerossdev"
-                    target="_blank"
-                    rel="noopener nofollow">@lancerossdev</a
-                >
-            </li>
-            <li>
-                Email - <a
-                    id="tooltip"
-                    class="tooltip inactive"
-                    onclick="getEmail()">Please enable JavaScript</a
-                >
-            </li>
-        </ul>
-        <ul role="list" id="menu" class="link-card-grid">
-            <Card href="/" title="Home" body="Go back to my homepage." />
-            <Card
-                href="/about"
-                title="About"
-                body="If you want to know stuff about me."
-            />
-            <Card
-                href="/blog"
-                title="Blog"
-                body="All my blog posts on dev.to"
-            />
-            <Card
-                href="/projects"
-                title="Projects"
-                body="All my projects from my GitHub."
-            />
-        </ul>
-        <footer>
-            <p>Designed and built by Lance Ross</p>
-            <p>
-                Built using <a
-                    href="https://astro.build"
-                    target="_blank"
-                    rel="noopener nofollow">Astro</a
-                > and <a
-                    href="https://sass-lang.com/"
-                    target="_blank"
-                    rel="noopener nofollow">Sass</a
-                >
-            </p>
-        </footer>
-    </main>
 </Layout>

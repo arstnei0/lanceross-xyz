@@ -93,7 +93,8 @@ body {
 }
 
 // including this too..
-a#href-image, #no-bg {
+a#href-image,
+#no-bg {
     background: none !important;
 }
 
@@ -141,13 +142,13 @@ a#href-image, #no-bg {
 
 .light-mode-toggle {
     right: 1.5em;
-    padding: 24px 0 0 4px;
+    margin: 24px 0 0 4px;
     @include smol-buttons;
 }
 
 .github-logo {
     right: 3.65em;
-    padding: 24px 0 0 16px;
+    margin-top: 24px;
     @include smol-buttons;
 }
 .github-logo:hover,
@@ -174,7 +175,7 @@ a#href-image, #no-bg {
 .beside {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: .5em;
+    gap: 0.5em;
 }
 
 main {

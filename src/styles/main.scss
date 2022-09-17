@@ -1,14 +1,14 @@
-$font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.57rem);
+$font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.52rem);
 $font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.52rem);
+$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.48rem);
 $color-text: hsl(215, 20%, 88%);
 $color-links: hsl(229, 18%, 17%);
 $color-bg: hsl(228, 21%, 9%);
 $card-background: rgb(14, 16, 23);
 
 @font-face {
-    font-family: "Poppins";
-    src: url("../fonts/Poppins.woff") format("woff");
+    font-family: "Rubik";
+    src: url("/fonts/Rubik.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -47,7 +47,7 @@ $card-background: rgb(14, 16, 23);
 }
 
 html {
-    font-family: Poppins, sans-serif;
+    font-family: Rubik, sans-serif;
     scroll-behavior: smooth;
     transition: all 50ms ease-in-out;
     transition: background 0.5s;
@@ -170,6 +170,7 @@ a#href-image,
     display: flex;
     justify-content: space-between;
     margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 .beside {
@@ -181,7 +182,8 @@ a#href-image,
 main {
     margin: auto;
     padding: 1em;
-    max-width: 43.45em;
+    max-width: 40em;
+    min-height: calc(100vh - 187px);
 }
 
 .hero {
@@ -242,12 +244,23 @@ body::-webkit-scrollbar {
     }
 }
 
+#tooltip {
+    background: none;
+    color: rgb(82, 122, 255);
+    padding: 0 !important;
+
+    &:hover {
+        color: rgb(152, 145, 255);
+        background: none;
+    }
+}
+
 footer {
-    bottom: 0;
-    margin-top: 3em;
-    display: grid;
-    place-items: center;
-    line-height: 1.5px;
+    background-color: darken($color-bg, 3.5%);
+    padding: 1px 0;
+    text-align: center;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
 }
 
 @media (max-width: 768px) {

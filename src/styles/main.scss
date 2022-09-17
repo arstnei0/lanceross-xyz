@@ -81,6 +81,10 @@ body {
         filter: invert(0%);
     }
 
+    footer {
+        background: invert($color-bg, 93%) !important;
+    }
+
     a {
         background-color: invert($card-background, 90%) !important;
         color: inherit;
@@ -92,8 +96,7 @@ body {
     }
 }
 
-// including this too..
-a#href-image,
+// including this too..,
 #no-bg {
     background: none !important;
 }
@@ -157,13 +160,10 @@ a#href-image,
     filter: invert(50%);
 }
 
-.href-image {
-    background: none !important;
-
-    &:hover {
-        background: none;
-        transition: all 170ms ease;
-    }
+.github-logo:active,
+.light-mode-toggle:active,
+#back-btn:active {
+    scale: 80%;
 }
 
 .hero-section {
@@ -183,18 +183,18 @@ main {
     margin: auto;
     padding: 1em;
     max-width: 40em;
-    min-height: calc(100vh - 187px);
+    min-height: calc(100vh - 182px);
 }
 
 .hero {
     border-radius: 50%;
-    margin: 1.5em 3em 0 0;
+    margin: 0.8em 3em 0 0;
     width: 192px;
     height: 192px;
-    transition: 1s;
+    transition: 300ms;
 
-    &:hover {
-        transform: rotate(360deg);
+    &:active {
+        transform: scale(0.9);
     }
 }
 
@@ -245,13 +245,13 @@ body::-webkit-scrollbar {
 }
 
 #tooltip {
-    background: none;
+    background: none !important;
     color: rgb(82, 122, 255);
     padding: 0 !important;
 
     &:hover {
         color: rgb(152, 145, 255);
-        background: none;
+        background: none !important;
     }
 }
 
@@ -261,6 +261,7 @@ footer {
     text-align: center;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
+    transition: .3s;
 }
 
 @media (max-width: 768px) {
@@ -269,14 +270,5 @@ footer {
     }
     .hero-section {
         display: block;
-    }
-
-    .github-logo,
-    .light-mode-toggle {
-        width: 24px;
-        height: 24px;
-    }
-    .github-logo {
-        padding-right: 6px;
     }
 }

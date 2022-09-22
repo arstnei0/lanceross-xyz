@@ -9,7 +9,7 @@ const { href, title, body } = Astro.props;
 ---
 
 <li class="link-card">
-    <a href={href} target="_blank" rel="noopener">
+    <a href={href} target="_blank" rel="noopener nofollow">
         <h2>
             {title}
         </h2>
@@ -19,64 +19,29 @@ const { href, title, body } = Astro.props;
     </a>
 </li>
 <style lang="scss">
-    $card-background: rgb(14, 16, 23);
-    
     .link-card {
         list-style: none;
         display: flex;
         padding: 0.15rem;
-        background-size: 400%;
-        border-radius: 0.5rem;
-        background-position: 100%;
+        align-items: center;
+        justify-content: center;
 
-        &:hover {
-            animation: fade 5s infinite ease-in-out;
-            transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-    }
-
-    .link-card {
         a {
             width: 100%;
-            text-decoration: none;
             line-height: 1.4;
-            padding: 1em 1.3em;
-            border-radius: 1em;
-            background-color: $card-background;
+            padding: 1em 0;
+            background: inherit;
             opacity: 1;
 
-            &:hover {
-                background-color: lighten($card-background, 5%);
+            h2 {
+                margin: 0;
+                font-size: 1.2em;
+            }
+
+            p {
+                margin-top: 0.75rem;
+                margin-bottom: 0;
             }
         }
-    }
-
-    h2 {
-        margin: 0;
-        transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    p {
-        margin-top: 0.75rem;
-        margin-bottom: 0;
-    }
-
-    h2 {
-        span {
-            display: inline-block;
-            transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-    }
-    .link-card:is(:hover, :focus-within) {
-        background-position: 0;
-    }
-
-    .link-card:is(:hover, :focus-within) h2 {
-        color: #8597ff;
-    }
-
-    .link-card:is(:hover, :focus-within) h2 span {
-        will-change: transform;
-        transform: translateX(2px);
     }
 </style>

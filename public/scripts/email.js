@@ -1,4 +1,4 @@
-document.getElementById("tooltip").innerHTML = "send me an email";
+document.getElementById("clicked").innerHTML = "send me an email";
 
 function getEmail() {
     let email = "zyx.ssorecnal@ecnal";
@@ -11,9 +11,9 @@ function getEmail() {
     document.execCommand("copy");
     document.body.removeChild(tempInput);
 
-    var tooltip = document.getElementById("tooltip");
-    document.getElementById("tooltip").innerHTML = "Copied!";
+    let clicked = document.getElementById("clicked");
+    document.getElementById("clicked").innerHTML = "copied!";
     setTimeout(() => {
-        document.getElementById("tooltip").innerHTML = "send me an email";
+        document.getElementById("clicked").innerHTML = "send me an email";
     }, 2000);
 }

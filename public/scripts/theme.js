@@ -19,4 +19,3 @@ setInterval(() => {
         document.body.classList = "";
     }
 });
-

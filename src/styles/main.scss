@@ -1,230 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500&family=Roboto+Mono&display=swap");
+
 $font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.52rem);
-$font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-$font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 2.48rem);
-$color-text: hsl(215, 20%, 88%);
+$font-size-lg: clamp(1.68rem, 0.8vw + 1.4rem, 1.86rem);
+$font-size-xl: clamp(2.2rem, 2.38vw + 1.85rem, 2.1rem);
 $color-links: hsl(229, 18%, 17%);
-$color-bg: hsl(228, 21%, 9%);
-$card-background: rgb(14, 16, 23);
-
-@font-face {
-    font-family: "Rubik";
-    src: url("/fonts/Rubik.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@mixin hue-gradient {
-    background-image: -webkit-linear-gradient(45deg, #00c3fe, #00ff6e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 100% 200%;
-    background-position-y: 100%;
-    border-radius: 0.4rem;
-    -webkit-animation: hue 5s ease-in-out infinite;
-}
+$color-bg: hsl(225, 20%, 8%);
 
 @mixin smol-buttons {
     position: absolute;
     filter: invert(100%);
-    background: transparent;
     cursor: pointer;
-    transition: all 200ms ease;
 }
 
-.link-card-grid {
+html {
+    font-family: Lexend Deca, sans-serif;
+    font-weight: 400;
+    scroll-behavior: smooth;
+
+    ::selection {
+        background-color: rgb(80, 85, 140);
+        color: white;
+    }
+}
+
+body {
+    font-size: $font-size-base;
+    color: white;
+    background: $color-bg;
+    margin: 0;
+    will-change: transform;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin: auto;
+    padding: 3em;
+    max-width: 40em;
+}
+
+.lightmode {
+    color: black;
+    background: white;
+
+    .top-icons {
+        filter: invert(0%) !important;
+    }
+
+    .overlay {
+        background: white;
+    }
+
+    footer {
+        background: #1b212c;
+        color: white;
+    }
+
+    .bottom-icons {
+        a {
+            filter: invert(0%) !important;
+        }
+    }
+}
+
+.lightmode::-webkit-scrollbar {
+    &-track {
+        background-color: invert($color-bg, 85%);
+    }
+
+    &-thumb {
+        background-color: invert($color-bg, 65%);
+        border-radius: 20px;
+
+        &:hover {
+            background-color: invert($color-bg, 50%);
+        }
+    }
+}
+
+.navbar {
+    padding-top: 32px;
+
+    .top-icons {
+        filter: invert(100%);
+    }
+
+    .menu-toggle {
+        left: 1em;
+        display: none;
+        @include smol-buttons;
+    }
+
+    .brand-nav {
+        font-weight: 600;
+        left: 2.7em;
+        font-size: 1.2em;
+        @include smol-buttons;
+        filter: invert(0%) !important;
+    }
+
+    .nav-links {
+        position: absolute;
+        padding-left: 2em;
+        padding-top: 3px;
+        left: 8em;
+
+        a {
+            padding-left: 0.7em;
+            padding-right: 0.7em;
+            font-size: 1em;
+        }
+    }
+
+    .light-mode-toggle {
+        right: 1.5em;
+        @include smol-buttons;
+    }
+
+    .github-logo {
+        right: 3.6em;
+        @include smol-buttons;
+    }
+}
+
+.close-toggle {
+    left: 1em;
+    padding-top: 1.1em;
+    @include smol-buttons;
+}
+
+.small-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
+    gap: 1em;
     padding: 1em 0 0 0;
 }
 
 .big-card-grid {
     display: grid;
-    align-items: center;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1em;
     padding: 1em 0 0 0;
 }
 
-html {
-    font-family: Rubik, sans-serif;
-    scroll-behavior: smooth;
-    transition: all 50ms ease-in-out;
-    transition: background 0.5s;
-}
-
-::selection {
-    background-color: lighten($color-bg, 30%);
-    color: #fff;
-}
-
-body {
-    font-size: $font-size-base;
-    color: $color-text;
+.overlay {
+    width: 0;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
     background: $color-bg;
-    margin: 0;
-    will-change: transform;
-    transition: background 300ms;
-}
-
-// please don't touch anything here inside the .lightmode
-// it took me many hours just to make dark mode work on my site
-.lightmode {
-    color: invert($color-text, 100%);
-    background: invert($color-bg, 100%);
-    transition: background 300ms;
-
-    .github-logo,
-    .light-mode-toggle,
-    #back-btn,
-    .social-icons {
-        filter: invert(0%);
-    }
-
-    footer {
-        background: invert($color-bg, 93%) !important;
-    }
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden !important;
 
     a {
-        background-color: invert($card-background, 90%) !important;
-        color: inherit;
-
-        &:hover {
-            background-color: invert($color-links, 100%) !important;
-            text-decoration: none;
-        }
+        padding: 12px;
+        font-size: $font-size-xl;
     }
 }
 
-// including this too..,
-#no-bg {
-    background: none !important;
-}
-
-.lightmode::-webkit-scrollbar {
-    &-track {
-        background-color: invert($color-bg, 85%) !important;
-    }
-
-    &-thumb {
-        background-color: invert($color-bg, 65%) !important;
-        border-radius: 20px;
-
-        &:hover {
-            background-color: invert($color-bg, 50%) !important;
-        }
-    }
-}
-
-.text-gradient {
-    font-weight: 800;
-    @include hue-gradient;
-}
-
-@-webkit-keyframes hue {
-    from {
-        -webkit-filter: hue-rotate(0deg);
-    }
-    to {
-        -webkit-filter: hue-rotate(-360deg);
-    }
-}
-
-#back-btn {
-    left: 0.5em;
-    padding: 12px 0 0 4px;
-    width: 48px;
-    height: 48px;
-    @include smol-buttons;
-    background: none !important;
-
-    &:hover {
-        background: none !important;
-    }
-}
-
-.light-mode-toggle {
-    right: 1.5em;
-    margin: 24px 0 0 4px;
-    @include smol-buttons;
-}
-
-.github-logo {
-    right: 3.65em;
-    margin-top: 24px;
-    @include smol-buttons;
-}
-.github-logo:hover,
-.light-mode-toggle:hover,
-#back-btn:hover {
-    filter: invert(50%);
-}
-
-.github-logo:active,
-.light-mode-toggle:active,
-#back-btn:active {
-    scale: 80%;
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    display: grid;
+    place-items: center;
 }
 
 .hero-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 1em;
     margin-bottom: 2em;
+
+    article {
+        p {
+            max-width: 25em;
+
+            &:first-child {
+                margin: 100px !important;
+            }
+        }
+        
+    }
 }
 
-.beside {
+.hero-image {
+    border-radius: 50%;
+    margin-top: 2.5em;
+    margin-right: 2.2em;
+    width: 172px;
+    height: 172px;
+}
+
+.projects-home {
+    padding-top: 2.5em;
+    padding-bottom: 1em;
+}
+
+.about-section {
+    padding: 1em;
+    max-width: 40em;
+}
+
+.contact-section {
+    padding: 3em 0;
+    display: grid;
+    place-items: center;
+
+    p {
+        max-width: 20em;
+        text-align: center;
+    }
+
+    span {
+        color: rgb(92, 130, 254);
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            color: rgb(152, 145, 255);
+        }
+    }
+    .bottom-icons {
+        margin-top: 1em;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        a {
+            width: 24px;
+            height: 24px;
+            filter: invert(100%);
+            margin: 0 8px;
+        }
+    }
+    
+}
+
+footer {
+    margin-top: auto;
+    display: grid;
+    place-items: center;
+    padding: 1.2em 0;
+    background: #1b212c;
+
+    p {
+        margin: 0.2em;
+        font-size: 0.85em;
+    }
+
+    a {
+        color: rgb(70, 113, 255) !important;
+    }
+}
+
+.icons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 0.5em;
 }
 
-main {
-    margin: auto;
-    padding: 1em;
-    max-width: 40em;
-    min-height: calc(100vh - 182px);
+.div-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.hero {
+.icons-property {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    margin: 0.8em 3em 0 0;
-    width: 192px;
-    height: 192px;
-    transition: 300ms;
-
-    &:active {
-        transform: scale(0.9);
-    }
-}
-
-a {
-    background-color: $color-links;
-    border-radius: 0.25em;
-    padding: 0px 5px 2px 5px;
-    font-size: 1em;
-    color: inherit;
-    text-decoration: none;
-    transition: all 170ms ease;
-    cursor: pointer;
-
-    &:hover {
-        background-color: lighten($color-links, 10%);
-        text-decoration: none;
-    }
 }
 
 h1 {
     font-size: $font-size-xl;
-
-    &.four-oh-four {
-        margin: 0.5em 0 0 0;
-        font-size: clamp(3.2rem, 2.38vw + 2.5rem, 3.9rem) !important;
-    }
 }
 
 h2 {
     font-size: $font-size-lg;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 150ms ease;
+
+    &:hover {
+        color: rgb(93, 131, 255);
+    }
+}
+
+.links {
+    color: rgb(92, 130, 254);
+
+    &:hover,
+    &:active {
+        color: rgb(152, 145, 255);
+    }
 }
 
 body::-webkit-scrollbar {
@@ -244,31 +321,21 @@ body::-webkit-scrollbar {
     }
 }
 
-#tooltip {
-    background: none !important;
-    color: rgb(82, 122, 255);
-    padding: 0 !important;
-
-    &:hover {
-        color: rgb(152, 145, 255);
-        background: none !important;
-    }
-}
-
-footer {
-    background-color: darken($color-bg, 3.5%);
-    padding: 1px 0;
-    text-align: center;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    transition: .3s;
-}
-
 @media (max-width: 768px) {
-    main {
-        padding: 2em 2em;
-    }
-    .hero-section {
+    .hero-section,
+    .navbar > .menu-toggle {
         display: block;
+    }
+    .navbar {
+        padding-top: 28px;
+    }
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .overlay {
+        display: none;
     }
 }

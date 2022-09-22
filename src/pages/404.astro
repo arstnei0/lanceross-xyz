@@ -1,11 +1,14 @@
 ---
 import "../styles/main.scss";
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/NotFound.astro";
 ---
 
 <Layout title="404 Error" description="Yeah, it doesn't exist.">
-    <div class="centered">
-        <span class="social-icons-spacing">
+    <div
+        class="centered"
+        style="display: grid; place-items: center; padding-top: 1.5em;"
+    >
+        <a href="/">
             <svg
                 width="192px"
                 height="192px"
@@ -50,14 +53,8 @@ import Layout from "../layouts/Layout.astro";
                     ></path>
                 </g>
             </svg>
-        </span>
-        <h1 class="four-oh-four"><span class="text-gradient">404</span> Error</h1>
-        <h2>Sorry, it doesn't exist.</h2>
+        </a>
+        <h1 style="margin: 0;">404 Error</h1>
+        <h2 style="text-align: center;">Sorry, it doesn't exist.</h2>
     </div>
 </Layout>
-<style lang="scss">
-    .centered {
-        display: grid;
-        place-items: center;
-    }
-</style>

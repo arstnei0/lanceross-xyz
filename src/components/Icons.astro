@@ -10,36 +10,14 @@ export interface Props {
 const { text, logo, href } = Astro.props as Props;
 ---
 
-<div class="for-icons">
-    <a class="icons-for" id="no-bg" href={href} target="_blank">
+<div class="div-icons">
+    <a
+        class="icons-property"
+        href={href}
+        target="_blank" rel="noopener nofollow"
+        aria-label="Logo of the Framework or Language"
+    >
         <Icon name={logo} />
     </a>
-    <a id="no-bg" href={href} target="_blank"><p>{text}</p></a>
+    <a href={href} target="_blank" rel="noopener"><p>{text}</p></a>
 </div>
-<style lang="scss">
-    $color-links: hsl(229, 18%, 17%);
-
-    .for-icons {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .icons-for {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2.75rem;
-        height: 2.75rem;
-        border-radius: 50%;
-        border-top-width: 1px;
-        background: transparent;
-    }
-
-    a {
-        background: none !important;
-        &:hover {
-            color: lighten($color-links, 60%);
-        }
-    }
-</style>

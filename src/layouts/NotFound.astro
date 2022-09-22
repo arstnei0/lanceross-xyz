@@ -1,0 +1,64 @@
+---
+import "../styles/main.scss";
+import { Spa } from "astro-spa";
+export interface Props {
+    title?: string;
+    description?: string;
+    heroImage?: string;
+    imageAlt?: string;
+}
+
+const defaultMeta = {
+    title: "Lance Ross",
+    description: "A teenager who likes JavaScript",
+    image: "banner.png",
+    imageAlt: "A picture of smol ame",
+};
+
+const {
+    title = defaultMeta.title,
+    description = defaultMeta.description,
+    heroImage = defaultMeta.image,
+    imageAlt = defaultMeta.imageAlt,
+} = Astro.props as Props;
+
+const ImageURL = new URL(`/images/${heroImage}`, Astro.site);
+const canonicalURL = new URL(Astro.url).href;
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+        <title>{title}</title>
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ImageURL} />
+        <meta property="og:image:alt" content={imageAlt} />
+        <meta property="og:site_name" content="Lance Ross" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta name="twitter:site" content="@lancerossdev" />
+        <meta name="twitter:creator" content="@lancerossdev" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={ImageURL} />
+        <meta name="robots" content="follow, index" />
+        <meta name="author" content="Lance Ross" />
+        <script src="/scripts/theme.js" defer></script>
+    </head>
+    <body id="body">
+        <main>
+            <slot />
+        </main>
+        <Spa defaultAnimation={false} progressBar={false} />
+    </body>
+</html>

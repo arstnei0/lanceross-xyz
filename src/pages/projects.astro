@@ -4,12 +4,14 @@ import BigCard from "../components/BigCard.astro";
 import "../styles/main.scss";
 ---
 
-<Layout title="Projects - Lance Ross" description="Here are all my projects from my GitHub account.">
+<Layout
+    title="Projects - Lance Ross"
+    description="Here are all my projects from my GitHub account."
+>
     <h1>My Projects 📚</h1>
     <p>
         You can find here all my projects from GitHub. I usually create Web apps
-        and Static sites. I don't know how to customize the project cards so
-        this design will work for now. You can check all my projects in <a
+        and Static sites. Each projects have a link on their repositories so you can visit the project on your browser. You can check all my projects in <a
             href="https://github.com/lancerossdev?tab=repositories"
             target="_blank"
             rel="noopener nofollow"
@@ -18,6 +20,11 @@ import "../styles/main.scss";
     </p>
     <ul role="list" class="big-card-grid">
         <BigCard
+            href="https://github.com/lancerossdev/science-project/"
+            title="science-project"
+            body="This is a project for my school in science."
+        />
+        <BigCard
             href="https://github.com/lancerossdev/lanceross-xyz/"
             title="lanceross-xyz"
             body="This is my new website which you are looking right now!"
@@ -25,7 +32,7 @@ import "../styles/main.scss";
         <BigCard
             href="https://github.com/lancerossdev/old-website/"
             title="old-website"
-            body="This is my old website made with HTML, Sass and a few JavaScript."
+            body="This is my old website made with HTML and Sass"
         />
     </ul><br />
 </Layout>

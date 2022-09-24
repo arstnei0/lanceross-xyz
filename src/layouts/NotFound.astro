@@ -1,6 +1,5 @@
 ---
 import "../styles/main.scss";
-import { Spa } from "astro-spa";
 export interface Props {
     title?: string;
     description?: string;
@@ -59,6 +58,5 @@ const canonicalURL = new URL(Astro.url).href;
         <main>
             <slot />
         </main>
-        <Spa defaultAnimation={false} progressBar={false} />
     </body>
 </html>

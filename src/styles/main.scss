@@ -46,10 +46,14 @@ main {
 
     .top-icons {
         filter: invert(0%) !important;
+
+        &:hover {
+            filter: invert(30%) !important;
+        }
     }
 
     .overlay {
-        background: white;
+        background: darken(white, 5%);
     }
 
     footer {
@@ -60,6 +64,10 @@ main {
     .bottom-icons {
         a {
             filter: invert(0%) !important;
+
+            &:hover {
+                filter: invert(30%) !important;
+            }
         }
     }
 }
@@ -84,6 +92,11 @@ main {
 
     .top-icons {
         filter: invert(100%);
+        transition: all 150ms ease;
+
+        &:hover {
+            filter: invert(70%);
+        }
     }
 
     .menu-toggle {
@@ -124,6 +137,11 @@ main {
     }
 }
 
+.top-icons:active,
+.bottom-icons > a:active{
+    scale: 85%;
+}
+
 .close-toggle {
     left: 1em;
     padding-top: 1.1em;
@@ -139,7 +157,7 @@ main {
 
 .big-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 1em;
     padding: 1em 0 0 0;
 }
@@ -149,10 +167,11 @@ main {
     height: 100vh;
     position: fixed;
     z-index: 1;
-    background: $color-bg;
+    background: lighten($color-bg, 7%);
     overflow: auto;
     overflow-x: hidden;
     overflow-y: hidden !important;
+    transition: all 300ms ease;
 
     a {
         padding: 12px;
@@ -182,7 +201,6 @@ main {
                 margin: 100px !important;
             }
         }
-        
     }
 }
 
@@ -215,8 +233,9 @@ main {
     }
 
     span {
-        color: rgb(92, 130, 254);
+        color: rgb(27, 80, 255);
         cursor: pointer;
+        transition: all 150ms ease;
 
         &:hover,
         &:active {
@@ -224,7 +243,7 @@ main {
         }
     }
     .bottom-icons {
-        margin-top: 1em;
+        margin-top: 1.25em;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -233,10 +252,14 @@ main {
             width: 24px;
             height: 24px;
             filter: invert(100%);
-            margin: 0 8px;
+            margin: 0 14px;
+            transition: all 150ms ease;
+
+            &:hover {
+                filter: invert(70%);
+            }
         }
     }
-    
 }
 
 footer {
@@ -253,6 +276,7 @@ footer {
 
     a {
         color: rgb(70, 113, 255) !important;
+        transition: all 150ms ease;
     }
 }
 
@@ -297,6 +321,7 @@ a {
 
 .links {
     color: rgb(92, 130, 254);
+    transition: all 150ms ease;
 
     &:hover,
     &:active {

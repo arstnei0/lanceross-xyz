@@ -12,14 +12,23 @@ $color-bg: hsl(225, 20%, 8%);
     cursor: pointer;
 }
 
+@mixin text-gradient {
+    background: linear-gradient(90deg, #10998e 0%, #1bb8a9);
+    -webkit-animation: rainbow 5s ease infinite;
+    animation: rainbow 5s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 html {
     font-family: Lexend Deca, sans-serif;
     font-weight: 400;
     scroll-behavior: smooth;
 
     ::selection {
-        background-color: rgb(90, 137, 212);
-        color: inherit;
+        background-color: rgb(66, 92, 209);
+        color: white;
     }
 }
 
@@ -138,7 +147,7 @@ main {
 }
 
 .top-icons:active,
-.bottom-icons > a:active{
+.bottom-icons > a:active {
     scale: 85%;
 }
 
@@ -157,7 +166,6 @@ main {
 
 .big-card-grid {
     display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 1em;
     padding: 1em 0 0 0;
 }
@@ -194,6 +202,25 @@ main {
     margin-bottom: 2em;
 
     article {
+        h1 {
+            @include text-gradient();
+
+            &::selection {
+                background-color: rgb(90, 137, 212);
+                color: inherit;
+                -webkit-text-fill-color: white !important;
+            }
+        }
+
+        @keyframes rainbow {
+            from {
+                filter: hue-rotate(0deg);
+            }
+            to {
+                filter: hue-rotate(-1turn);
+            }
+        }
+
         p {
             max-width: 25em;
 
@@ -215,6 +242,7 @@ main {
 .projects-home {
     padding-top: 2.5em;
     padding-bottom: 1em;
+    text-align: center;
 }
 
 .about-section {
@@ -233,13 +261,15 @@ main {
     }
 
     span {
-        color: rgb(27, 80, 255);
+        @include text-gradient();
         cursor: pointer;
         transition: all 150ms ease;
+        font-weight: 500;
 
-        &:hover,
-        &:active {
-            color: rgb(152, 145, 255);
+        &::selection {
+            background: rgb(90, 137, 212) !important;
+            color: inherit;
+            -webkit-text-fill-color: white !important;
         }
     }
     .bottom-icons {
@@ -315,7 +345,7 @@ a {
     transition: all 150ms ease;
 
     &:hover {
-        color: rgb(93, 131, 255);
+        color: rgb(35, 152, 167);
     }
 }
 
@@ -325,7 +355,7 @@ a {
 
     &:hover,
     &:active {
-        color: rgb(152, 145, 255);
+        color: rgb(22, 174, 194)
     }
 }
 

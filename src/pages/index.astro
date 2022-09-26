@@ -4,13 +4,11 @@ import Card from "../components/Card.astro";
 import "../styles/main.scss";
 ---
 
-<Layout
-    description="I am a teen student web dev in Philippines."
->
+<Layout>
     <div class="hero-section">
         <img
             class="hero-image"
-            src="/images/hero.png"
+            src="/static/hero.png"
             alt="A picture of Marnie from Pokemon Journeys"
         />
         <article>
@@ -123,5 +121,126 @@ import "../styles/main.scss";
             </a>
         </div>
     </div>
-    <script src="/scripts/email.js" defer></script>
+    <script defer>
+        document.getElementById("clicked").innerHTML = "send me an email";
+
+        function getEmail() {
+            let email = "zyx.ssorecnal@ecnal";
+
+            let tempInput = document.createElement("INPUT");
+            document.body.appendChild(tempInput);
+            tempInput.setAttribute("value", email.split("").reverse().join(""));
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            let clicked = document.getElementById("clicked");
+            document.getElementById("clicked").innerHTML = "copied!";
+            setTimeout(() => {
+                document.getElementById("clicked").innerHTML =
+                    "send me an email";
+            }, 2000);
+        }
+    </script>
+    <style lang="scss">
+        @mixin text-gradient {
+            background: linear-gradient(90deg, #10998e 0%, #1bb8a9);
+            -webkit-animation: rainbow 5s ease infinite;
+            animation: rainbow 5s ease infinite;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-section {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 1em;
+            margin-bottom: 2em;
+
+            article {
+                h1 {
+                    @include text-gradient();
+
+                    &::selection {
+                        background-color: rgb(90, 137, 212);
+                        color: inherit;
+                        -webkit-text-fill-color: white !important;
+                    }
+                }
+
+                @keyframes rainbow {
+                    from {
+                        filter: hue-rotate(0deg);
+                    }
+                    to {
+                        filter: hue-rotate(-1turn);
+                    }
+                }
+
+                p {
+                    max-width: 25em;
+
+                    &:first-child {
+                        margin: 100px !important;
+                    }
+                }
+            }
+        }
+
+        .hero-image {
+            border-radius: 50%;
+            margin: 2.5em 2.2em 0 0;
+            width: 172px;
+            height: 172px;
+        }
+
+        .projects-home {
+            padding: 2.5em 0 1em 0;
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 3em 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+
+            p {
+                max-width: 20em;
+            }
+
+            span {
+                @include text-gradient();
+                cursor: pointer;
+                transition: all 150ms ease;
+                font-weight: 500;
+
+                &::selection {
+                    color: inherit;
+                    -webkit-text-fill-color: white !important;
+                }
+            }
+            .bottom-icons {
+                margin-top: 1.25em;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                a {
+                    width: 24px;
+                    height: 24px;
+                    filter: invert(100%);
+                    margin: 0 14px;
+                    transition: all 150ms ease;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                display: block;
+            }
+        }
+    </style>
 </Layout>

@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500&family=Roboto+Mono&display=swap");
-
 $font-size-base: clamp(1rem, 0.34vw + 0.96rem, 1.52rem);
 $font-size-lg: clamp(1.68rem, 0.8vw + 1.4rem, 1.86rem);
 $font-size-xl: clamp(2.2rem, 2.38vw + 1.85rem, 2.1rem);
-$color-links: hsl(229, 18%, 17%);
 $color-bg: hsl(225, 20%, 8%);
+
+@font-face {
+    font-family: "Lexend Deca";
+    src: url("/static/Lexend.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 @mixin smol-buttons {
     position: absolute;
@@ -12,13 +17,10 @@ $color-bg: hsl(225, 20%, 8%);
     cursor: pointer;
 }
 
-@mixin text-gradient {
-    background: linear-gradient(90deg, #10998e 0%, #1bb8a9);
-    -webkit-animation: rainbow 5s ease infinite;
-    animation: rainbow 5s ease infinite;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+@mixin card-grid {
+    display: grid;
+    gap: 1em;
+    padding: 1em 0 0 0;
 }
 
 html {
@@ -53,31 +55,14 @@ main {
     color: black;
     background: white;
 
-    .top-icons {
-        filter: invert(0%) !important;
-
-        &:hover {
-            filter: invert(30%) !important;
-        }
-    }
-
     .overlay {
         background: darken(white, 5%);
     }
 
-    footer {
-        background: #1b212c;
-        color: white;
-    }
-
-    .bottom-icons {
-        a {
-            filter: invert(0%) !important;
-
-            &:hover {
-                filter: invert(30%) !important;
-            }
-        }
+    .bottom-icons,
+    .top-icons,
+    .top-icons > a {
+        filter: invert(0%) !important;
     }
 }
 
@@ -87,7 +72,7 @@ main {
     }
 
     &-thumb {
-        background-color: invert($color-bg, 65%);
+        background-color: invert($color-bg, 60%);
         border-radius: 20px;
 
         &:hover {
@@ -101,11 +86,6 @@ main {
 
     .top-icons {
         filter: invert(100%);
-        transition: all 150ms ease;
-
-        &:hover {
-            filter: invert(70%);
-        }
     }
 
     .menu-toggle {
@@ -127,11 +107,10 @@ main {
         padding-left: 2em;
         padding-top: 3px;
         left: 8em;
+        font-size: 1em;
 
         a {
-            padding-left: 0.7em;
-            padding-right: 0.7em;
-            font-size: 1em;
+            padding: 0 0.7em;
         }
     }
 
@@ -146,28 +125,19 @@ main {
     }
 }
 
-.top-icons:active,
-.bottom-icons > a:active {
-    scale: 85%;
-}
-
 .close-toggle {
     left: 1em;
-    padding-top: 1.1em;
+    margin-top: 1.5em;
     @include smol-buttons;
 }
 
 .small-card-grid {
-    display: grid;
+    @include card-grid();
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1em;
-    padding: 1em 0 0 0;
 }
 
 .big-card-grid {
-    display: grid;
-    gap: 1em;
-    padding: 1em 0 0 0;
+    @include card-grid();
 }
 
 .overlay {
@@ -177,7 +147,6 @@ main {
     z-index: 1;
     background: lighten($color-bg, 7%);
     overflow: auto;
-    overflow-x: hidden;
     overflow-y: hidden !important;
     transition: all 300ms ease;
 
@@ -195,140 +164,17 @@ main {
     place-items: center;
 }
 
-.hero-section {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 1em;
-    margin-bottom: 2em;
-
-    article {
-        h1 {
-            @include text-gradient();
-
-            &::selection {
-                background-color: rgb(90, 137, 212);
-                color: inherit;
-                -webkit-text-fill-color: white !important;
-            }
-        }
-
-        @keyframes rainbow {
-            from {
-                filter: hue-rotate(0deg);
-            }
-            to {
-                filter: hue-rotate(-1turn);
-            }
-        }
-
-        p {
-            max-width: 25em;
-
-            &:first-child {
-                margin: 100px !important;
-            }
-        }
-    }
-}
-
-.hero-image {
-    border-radius: 50%;
-    margin-top: 2.5em;
-    margin-right: 2.2em;
-    width: 172px;
-    height: 172px;
-}
-
-.projects-home {
-    padding-top: 2.5em;
-    padding-bottom: 1em;
-    text-align: center;
-}
-
-.about-section {
-    padding: 1em;
-    max-width: 40em;
-}
-
-.contact-section {
-    padding: 3em 0;
-    display: grid;
-    place-items: center;
-
-    p {
-        max-width: 20em;
-        text-align: center;
-    }
-
-    span {
-        @include text-gradient();
-        cursor: pointer;
-        transition: all 150ms ease;
-        font-weight: 500;
-
-        &::selection {
-            background: rgb(90, 137, 212) !important;
-            color: inherit;
-            -webkit-text-fill-color: white !important;
-        }
-    }
-    .bottom-icons {
-        margin-top: 1.25em;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-
-        a {
-            width: 24px;
-            height: 24px;
-            filter: invert(100%);
-            margin: 0 14px;
-            transition: all 150ms ease;
-
-            &:hover {
-                filter: invert(70%);
-            }
-        }
-    }
-}
-
 footer {
-    margin-top: auto;
     display: grid;
     place-items: center;
     padding: 1.2em 0;
     background: #1b212c;
+    color: white;
+    font-size: 0.85em;
 
     p {
         margin: 0.2em;
-        font-size: 0.85em;
     }
-
-    a {
-        color: rgb(70, 113, 255) !important;
-        transition: all 150ms ease;
-    }
-}
-
-.icons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 0.5em;
-}
-
-.div-icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.icons-property {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
 }
 
 h1 {
@@ -342,21 +188,10 @@ h2 {
 a {
     color: inherit;
     text-decoration: none;
-    transition: all 150ms ease;
-
-    &:hover {
-        color: rgb(35, 152, 167);
-    }
 }
 
 .links {
-    color: rgb(92, 130, 254);
-    transition: all 150ms ease;
-
-    &:hover,
-    &:active {
-        color: rgb(22, 174, 194)
-    }
+    color: rgb(67, 139, 255);
 }
 
 body::-webkit-scrollbar {
@@ -377,20 +212,13 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
-    .hero-section,
+    .overlay,
+    .nav-links,
     .navbar > .menu-toggle {
         display: block;
     }
-    .navbar {
-        padding-top: 28px;
-    }
-    .nav-links {
-        display: none;
-    }
-}
 
-@media (min-width: 768px) {
-    .overlay {
-        display: none;
+    .nav-links {
+        display: none !important;
     }
 }

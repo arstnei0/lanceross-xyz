@@ -14,10 +14,33 @@ const { text, logo, href } = Astro.props as Props;
     <a
         class="icons-property"
         href={href}
-        target="_blank" rel="noopener nofollow"
+        target="_blank"
+        rel="noopener nofollow"
         aria-label="Logo of the Framework or Language"
     >
         <Icon name={logo} />
     </a>
-    <a href={href} target="_blank" rel="noopener"><p>{text}</p></a>
+    <a href={href} target="_blank" rel="noopener nofollow"><p>{text}</p></a>
 </div>
+<style lang="scss">
+    .div-icons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .icons-property {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+
+    .icons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 0.5em;
+    }
+</style>

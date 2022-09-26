@@ -29,8 +29,8 @@ const canonicalURL = new URL(Astro.url).href;
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
         <title>{title}</title>
         <link rel="canonical" href={canonicalURL} />
         <meta name="title" content={title} />
@@ -52,7 +52,7 @@ const canonicalURL = new URL(Astro.url).href;
         <meta property="twitter:image" content={ImageURL} />
         <meta name="robots" content="follow, index" />
         <meta name="author" content="Lance Ross" />
-        <script src="/scripts/theme.js" defer></script>
+        <script src="/static/theme.js" defer></script>
     </head>
     <body id="body">
         <main>

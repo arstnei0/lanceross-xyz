@@ -22,7 +22,7 @@ const {
     imageAlt = defaultMeta.imageAlt,
 } = Astro.props as Props;
 
-const ImageURL = new URL(`/images/${heroImage}`, Astro.site);
+const ImageURL = new URL(`/static/${heroImage}`, Astro.site);
 const canonicalURL = new URL(Astro.url).href;
 ---
 
@@ -31,7 +31,7 @@ const canonicalURL = new URL(Astro.url).href;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
         <title>{title}</title>
         <link rel="canonical" href={canonicalURL} />
         <meta name="title" content={title} />
@@ -53,8 +53,18 @@ const canonicalURL = new URL(Astro.url).href;
         <meta property="twitter:image" content={ImageURL} />
         <meta name="robots" content="follow, index" />
         <meta name="author" content="Lance Ross" />
-        <script src="/scripts/theme.js" defer></script>
-        <script src="/scripts/navbar.js" defer></script>
+        <script src="/static/theme.js" defer></script>
+        <script defer>
+            function openNav() {
+                document.getElementById("navbar").style.width = "100%";
+                document.getElementById("body").style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                document.getElementById("navbar").style.width = "0%";
+                document.getElementById("body").style.overflow = 'auto';
+            }
+        </script>
     </head>
     <body id="body">
         <div id="navbar" class="overlay">

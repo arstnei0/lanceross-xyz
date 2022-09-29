@@ -1,6 +1,4 @@
 ---
-import "../styles/main.scss";
-
 export interface Props {
     title?: string;
     description?: string;
@@ -12,7 +10,7 @@ const defaultMeta = {
     title: "Lance Ross",
     description: "A student web dev in Philippines.",
     image: "banner.png",
-    imageAlt: "A picture of Marnie from Pokemon Journeys",
+    imageAlt: "Marnie from Pokemon Journeys",
 };
 
 const {
@@ -22,16 +20,18 @@ const {
     imageAlt = defaultMeta.imageAlt,
 } = Astro.props as Props;
 
-const ImageURL = new URL(`/static/${heroImage}`, Astro.site);
+const ImageURL = new URL(`/assets/${heroImage}`, Astro.site);
 const canonicalURL = new URL(Astro.url).href;
+
+import NavBar from '../components/NavBar.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="scroll-smooth font-lexend-deca">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
         <title>{title}</title>
         <link rel="canonical" href={canonicalURL} />
         <meta name="title" content={title} />
@@ -53,109 +53,46 @@ const canonicalURL = new URL(Astro.url).href;
         <meta property="twitter:image" content={ImageURL} />
         <meta name="robots" content="follow, index" />
         <meta name="author" content="Lance Ross" />
-        <script src="/static/theme.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+            rel="stylesheet"
+        />
         <script defer>
             function openNav() {
-                document.getElementById("navbar").style.width = "100%";
-                document.getElementById("body").style.overflow = 'hidden';
+                document.querySelector(".navbar").classList.add("w-screen");
+                document.querySelector(".navbar").classList.remove("w-0");
+                document
+                    .querySelector("body")
+                    .classList.add("overflow-y-hidden");
+                document
+                    .querySelector("body")
+                    .classList.remove("overflow-auto");
             }
 
             function closeNav() {
-                document.getElementById("navbar").style.width = "0%";
-                document.getElementById("body").style.overflow = 'auto';
+                document.querySelector(".navbar").classList.add("w-0");
+                document.querySelector(".navbar").classList.remove("w-screen");
+                document.querySelector("body").classList.add("overflow-auto");
+                document
+                    .querySelector("body")
+                    .classList.remove("overflow-y-hidden");
             }
         </script>
     </head>
-    <body id="body">
-        <div id="navbar" class="overlay">
-            <span class="close-toggle top-icons" onclick="closeNav()"
-                ><svg
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="2"
-                    viewBox="0 0 24 24"
-                    width="36"
-                    height="36"
-                    xmlns="http://www.w3.org/2000/svg"
-                    ><path
-                        d="m13.789 7.155c.141-.108.3-.157.456-.157.389 0 .755.306.755.749v8.501c0 .445-.367.75-.755.75-.157 0-.316-.05-.457-.159-1.554-1.203-4.199-3.252-5.498-4.258-.184-.142-.29-.36-.29-.592 0-.23.107-.449.291-.591 1.299-1.002 3.945-3.044 5.498-4.243z"
-                    ></path>
-                </svg>
-            </span>
-            <div class="overlay-content">
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/projects">Projects</a>
-                <a href="/blog">Blog</a>
-            </div>
-        </div>
-        <nav class="navbar">
-            <span class="menu-toggle top-icons" onclick="openNav()"
-                ><svg
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="2"
-                    viewBox="0 0 24 24"
-                    width="28"
-                    height="28"
-                    xmlns="http://www.w3.org/2000/svg"
-                    ><path
-                        d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"
-                    ></path>
-                </svg>
-            </span>
-            <span class="brand-nav">
-                <a href="/">lanceross</a>
-            </span>
-            <span class="nav-links">
-                <a href="/about">About</a>
-                <a href="/projects">Projects</a>
-                <a href="/blog">Blog</a>
-            </span>
-            <a
-                class="github-logo top-icons"
-                href="https://github.com/lancerossdev/lanceross-xyz"
-                target="_blank"
-                rel="noopener nofollow"
-                aria-label="GitHub Repository of my website"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    ><path
-                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    ></path>
-                </svg>
-            </a>
-            <span
-                id="light-mode-toggle"
-                class="light-mode-toggle top-icons"
-                onclick="themeToggle()"
-                aria-hidden="true"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        d="M4.069 13h-4.069v-2h4.069c-.041.328-.069.661-.069 1s.028.672.069 1zm3.034-7.312l-2.881-2.881-1.414 1.414 2.881 2.881c.411-.529.885-1.003 1.414-1.414zm11.209 1.414l2.881-2.881-1.414-1.414-2.881 2.881c.528.411 1.002.886 1.414 1.414zm-6.312-3.102c.339 0 .672.028 1 .069v-4.069h-2v4.069c.328-.041.661-.069 1-.069zm0 16c-.339 0-.672-.028-1-.069v4.069h2v-4.069c-.328.041-.661.069-1 .069zm7.931-9c.041.328.069.661.069 1s-.028.672-.069 1h4.069v-2h-4.069zm-3.033 7.312l2.88 2.88 1.415-1.414-2.88-2.88c-.412.528-.886 1.002-1.415 1.414zm-11.21-1.415l-2.88 2.88 1.414 1.414 2.88-2.88c-.528-.411-1.003-.885-1.414-1.414zm2.312-4.897c0 2.206 1.794 4 4 4s4-1.794 4-4-1.794-4-4-4-4 1.794-4 4zm10 0c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"
-                    ></path>
-                </svg>
-            </span>
-        </nav>
-        <main>
-            <noscript style="text-align: center;"><h3>Do note that some stuffs won't work without JavaScript!</h3></noscript>
+    <body
+        class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-auto"
+    >
+        <NavBar />
+        <main class="m-auto p-6 max-w-4xl md:p-10 md:px-20">
             <slot />
         </main>
-        <footer>
+        <footer
+            class="grid place-items-center py-7 bg-[#181a23] text-white text-base text-center"
+        >
             <p>Designed and built by Lance Ross</p>
-            <p>Built using Astro and Sass</p>
+            <p>Built using Astro and Tailwind CSS</p>
         </footer>
     </body>
 </html>

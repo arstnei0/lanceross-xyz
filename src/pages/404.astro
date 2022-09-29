@@ -1,12 +1,10 @@
 ---
-import "../styles/main.scss";
 import Layout from "../layouts/NotFound.astro";
 ---
 
 <Layout title="404 Error" description="Yeah, it doesn't exist.">
     <div
-        class="centered"
-        style="display: grid; place-items: center; overflow:  "
+        class="grid place-items-center overflow-hidden"
     >
         <a href="/" aria-label="thinking emoji">
             <svg
@@ -54,7 +52,7 @@ import Layout from "../layouts/NotFound.astro";
                 </g>
             </svg>
         </a>
-        <h1 style="margin: 0;">404 Error</h1>
-        <h2 style="text-align: center;">Sorry, it doesn't exist.</h2>
+        <h1 class="my-8 text-6xl">404 Error</h1>
+        <h2 class="text-3xl">Sorry, it doesn't exist.</h2>
     </div>
 </Layout>

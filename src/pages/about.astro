@@ -1,28 +1,27 @@
 ---
 import Icons from "../components/Icons.astro";
 import Layout from "../layouts/Layout.astro";
-import "../styles/main.scss";
 ---
 
 <Layout
     title="About - Lance Ross"
     description="I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines. You can find more about me on this page."
 >
-    <h1>About Me 👨‍💻</h1>
+    <h1 class="text-4xl mb-6">About Me 👨‍💻</h1>
     <p>
         I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines.
         I enjoy building projects using good ol' HTML, CSS, and JavaScript. I
         started learning more stuff about computers when I was 13 years old and
         decided to get a job in Web Development field when I grow up.
-    </p>
+    </p><br />
     <p>
         I create websites when I have free time after school. When not busy with
         doing projects and schoolworks, I play different video games, try to how
         to play a guitar, and does exercises every other day.
     </p><br />
-    <h1>Skills ⚡</h1>
-    <h2>Programming Languages</h2>
-    <div class="icons-grid">
+    <h1 class="text-4xl my-6">Skills ⚡</h1>
+    <h2 class="text-2xl mb-2">Programming Languages</h2>
+    <div class="grid gap-2 grid-cols-1">
         <Icons logo="logos:python" text="Python" href="https://python.org" />
         <Icons
             logo="logos:javascript"
@@ -30,8 +29,8 @@ import "../styles/main.scss";
             href="https://javascript.com"
         />
     </div><br />
-    <h2>Libraries and Tools</h2>
-    <div class="icons-grid">
+    <h2 class="text-2xl mb-2">Libraries and Tools</h2>
+    <div class="grid gap-2 grid-cols-1">
         <Icons
             logo="logos:tailwindcss-icon"
             text="Tailwind CSS"

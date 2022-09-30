@@ -8,9 +8,9 @@ export interface Props {
 
 const defaultMeta = {
     title: "Lance Ross",
-    description: "This is page is still under construction.",
+    description: "A student web dev in Philippines.",
     image: "banner.png",
-    imageAlt: "A picture of Marnie from Pokemon Journeys",
+    imageAlt: "Marnie from Pokemon Journeys",
 };
 
 const {
@@ -22,13 +22,16 @@ const {
 
 const ImageURL = new URL(`/assets/${heroImage}`, Astro.site);
 const canonicalURL = new URL(Astro.url).href;
+
+import NavBar from '../components/NavBar.astro';
+import "@fontsource/lexend-deca";
 ---
 
 <!DOCTYPE html>
-<html lang="en-US" class="scroll-smooth font-lexend-deca text-white">
+<html lang="en-US" class="scroll-smooth font-lexend-deca">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
         <title>{title}</title>
         <link rel="canonical" href={canonicalURL} />
@@ -51,15 +54,33 @@ const canonicalURL = new URL(Astro.url).href;
         <meta property="twitter:image" content={ImageURL} />
         <meta name="robots" content="follow, index" />
         <meta name="author" content="Lance Ross" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
-            rel="stylesheet"
-        />
+        <script defer>
+            function openNav() {
+                document.querySelector(".navbar").classList.add("w-screen");
+                document.querySelector(".navbar").classList.remove("w-0");
+                document
+                    .querySelector("body")
+                    .classList.add("overflow-y-hidden");
+                document
+                    .querySelector("body")
+                    .classList.remove("overflow-auto");
+            }
+
+            function closeNav() {
+                document.querySelector(".navbar").classList.add("w-0");
+                document.querySelector(".navbar").classList.remove("w-screen");
+                document.querySelector("body").classList.add("overflow-auto");
+                document
+                    .querySelector("body")
+                    .classList.remove("overflow-y-hidden");
+            }
+        </script>
     </head>
-    <body class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-y-hidden">
-        <main class="m-auto p-8 max-w-4xl md:p-10 text-center">
+    <body
+        class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-auto"
+    >
+        <NavBar />
+        <main class="prose m-auto p-6 max-w-4xl md:p-10 md:px-20">
             <slot />
         </main>
     </body>

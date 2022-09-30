@@ -10,7 +10,7 @@ const defaultMeta = {
     title: "Lance Ross",
     description: "This is a 404 Page you know?",
     image: "banner.png",
-    imageAlt: "A picture of Marnie from Pokemon Journeys",
+    imageAlt: "Marnie from Pokemon Journeys",
 };
 
 const {
@@ -22,6 +22,7 @@ const {
 
 const ImageURL = new URL(`/assets/${heroImage}`, Astro.site);
 const canonicalURL = new URL(Astro.url).href;
+import "@fontsource/lexend-deca";
 ---
 
 <!DOCTYPE html>
@@ -51,12 +52,6 @@ const canonicalURL = new URL(Astro.url).href;
         <meta property="twitter:image" content={ImageURL} />
         <meta name="robots" content="follow, index" />
         <meta name="author" content="Lance Ross" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
-            rel="stylesheet"
-        />
     </head>
     <body class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-y-hidden">
         <main class="m-auto p-8 max-w-4xl md:p-10 text-center">

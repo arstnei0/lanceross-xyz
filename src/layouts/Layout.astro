@@ -24,6 +24,7 @@ const ImageURL = new URL(`/assets/${heroImage}`, Astro.site);
 const canonicalURL = new URL(Astro.url).href;
 
 import NavBar from '../components/NavBar.astro';
+import "@fontsource/lexend-deca";
 ---
 
 <!DOCTYPE html>
@@ -53,12 +54,6 @@ import NavBar from '../components/NavBar.astro';
         <meta property="twitter:image" content={ImageURL} />
         <meta name="robots" content="follow, index" />
         <meta name="author" content="Lance Ross" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
-            rel="stylesheet"
-        />
         <script defer>
             function openNav() {
                 document.querySelector(".navbar").classList.add("w-screen");
@@ -85,7 +80,7 @@ import NavBar from '../components/NavBar.astro';
         class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-auto"
     >
         <NavBar />
-        <main class="m-auto p-6 max-w-4xl md:p-10 md:px-20">
+        <main class="prose m-auto p-6 max-w-4xl md:p-10 md:px-20">
             <slot />
         </main>
         <footer

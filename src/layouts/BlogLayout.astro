@@ -1,87 +1,67 @@
 ---
-export interface Props {
-    title?: string;
-    description?: string;
-    heroImage?: string;
-    imageAlt?: string;
-}
-
-const defaultMeta = {
-    title: "Lance Ross",
-    description: "A student web dev in Philippines.",
-    image: "banner.png",
-    imageAlt: "Marnie from Pokemon Journeys",
-};
-
-const {
-    title = defaultMeta.title,
-    description = defaultMeta.description,
-    heroImage = defaultMeta.image,
-    imageAlt = defaultMeta.imageAlt,
-} = Astro.props as Props;
-
-const ImageURL = new URL(`/assets/${heroImage}`, Astro.site);
-const canonicalURL = new URL(Astro.url).href;
-
-import NavBar from '../components/NavBar.astro';
+import NavBar from "@components/NavBar.astro";
 import "@fontsource/lexend-deca";
+const { frontmatter } = Astro.props;
+
+const canonicalURL = new URL(Astro.url).href;
 ---
 
 <!DOCTYPE html>
 <html lang="en-US" class="scroll-smooth font-lexend-deca">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-        <title>{title}</title>
-        <link rel="canonical" href={canonicalURL} />
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={ImageURL} />
-        <meta property="og:image:alt" content={imageAlt} />
-        <meta property="og:site_name" content="Lance Ross" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta name="twitter:site" content="@lancerossdev" />
-        <meta name="twitter:creator" content="@lancerossdev" />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={ImageURL} />
-        <meta name="robots" content="follow, index" />
-        <meta name="author" content="Lance Ross" />
-        <script defer>
-            function openNav() {
-                document.querySelector(".navbar").classList.add("w-screen");
-                document.querySelector(".navbar").classList.remove("w-0");
-                document
-                    .querySelector("body")
-                    .classList.add("overflow-y-hidden");
-                document
-                    .querySelector("body")
-                    .classList.remove("overflow-auto");
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <title>{frontmatter.title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="title" content={frontmatter.title} />
+    <meta name="description" content={frontmatter.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta property="og:image" content={frontmatter.image} />
+    <meta property="og:image:alt" content="Context of the blog" />
+    <meta property="og:site_name" content="Lance Ross" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta name="twitter:site" content="@lancerossdev" />
+    <meta name="twitter:creator" content="@lancerossdev" />
+    <meta property="twitter:title" content={frontmatter.title} />
+    <meta property="twitter:description" content={frontmatter.description} />
+    <meta property="twitter:image" content={frontmatter.image} />
+    <meta name="robots" content="follow, index" />
+    <meta name="author" content="Lance Ross" />
+    <script defer>
+      function openNav() {
+        document.querySelector(".navbar").classList.add("w-screen");
+        document.querySelector(".navbar").classList.remove("w-0");
+        document.querySelector("body").classList.add("overflow-y-hidden");
+        document.querySelector("body").classList.remove("overflow-auto");
+      }
 
-            function closeNav() {
-                document.querySelector(".navbar").classList.add("w-0");
-                document.querySelector(".navbar").classList.remove("w-screen");
-                document.querySelector("body").classList.add("overflow-auto");
-                document
-                    .querySelector("body")
-                    .classList.remove("overflow-y-hidden");
-            }
-        </script>
-    </head>
-    <body
-        class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-auto"
-    >
-        <NavBar />
-        <main class="prose m-auto p-6 max-w-4xl md:p-10 md:px-20">
-            <slot />
-        </main>
-    </body>
+      function closeNav() {
+        document.querySelector(".navbar").classList.add("w-0");
+        document.querySelector(".navbar").classList.remove("w-screen");
+        document.querySelector("body").classList.add("overflow-auto");
+        document.querySelector("body").classList.remove("overflow-y-hidden");
+      }
+    </script>
+  </head>
+  <body
+    class="antialiased scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-auto"
+  >
+    <NavBar />
+    <main class="prose-base md:prose-xl m-auto p-6 max-w-4xl md:p-10 md:px-20">
+      <div class="grid place-items-center text-center">
+        <span class="text-xl dark:text-zinc-300 mb-5">{frontmatter.date}</span>
+        <h1 class="m-0 md:text-4xl mb-7">{frontmatter.title}</h1>
+        <h2 class="m-0 md:text-xl mb-7">Written by {frontmatter.author}</h2>
+      </div>
+      <div class="dark:text-zinc-200 prose-a:dark:text-blue-400 prose-a:!text-blue-500">
+        <slot />
+      </div>
+    </main>
+  </body>
 </html>

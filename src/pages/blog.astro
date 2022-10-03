@@ -1,20 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import BigCard from "../components/BigCard.astro";
+import Layout from "@layouts/Layout.astro";
+import BlogCard from "@components/BlogCard.astro";
 ---
 
 <Layout title="Blog - Lance Ross" description="This is where you can find my blogs from Dev Community (dev.to)">
-    <h1 class="text-4xl mb-4">Welcome to my blog 📝</h1>
-    <p class="">
-        You can find my blogs on my <a
-            href="https://dev.to/lanceross"
-            target="_blank"
-            rel="noopener nofollow"
-            class="text-blue-600 dark:text-blue-300">Dev Community</a
-        > account for now and I might start a blog on this website! Also, I'm not very good at creating blogs so don't mind about my grammar and paragraph structure.
-    </p><br />
-    <h1 class="text-4xl text-red-600 text-center">
-        Blog site under construction! Please wait for a few weeks or months.
-    </h1>
+  <h1 class="text-4xl mb-4">Welcome to my blog 📝</h1>
+  <p class="dark:text-zinc-300">
+    You can find my blogs on my <a href="https://dev.to/lanceross" target="_blank" rel="noopener nofollow" class="text-blue-600 dark:text-blue-400">Dev Community</a> account for now and I might
+    start a blog on this website! Also, I'm not very good at creating blogs so don't mind about my grammar and paragraph structure.
+  </p><br />
+  <BlogCard title="My Experience with Astro" pubDate="Oct 2 2022" description="I am going to share my experience of using Astro for a month." url="/blog/my-experience-with-astro" />
 </Layout>
- 

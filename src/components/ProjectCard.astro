@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+  title: string;
+  description: string;
+  projectUrl?: string;
+  githubUrl?: string;
+}
+
+const { title, description, githubUrl, projectUrl } = Astro.props;
+---
+
+<div
+  class="text-lg p-6 my-2 flex flex-col gap-2 dark:bg-[#14151a] hover:dark:bg-[#1a1c23] text-black dark:text-zinc-400 bg-[#efefef] hover:bg-[#e5e5e5] rounded-xl shadow-xl cursor-pointer transition"
+>
+  <header class="flex justify-between items-center">
+    <h2 class="text-xl font-medium dark:text-white">
+      {title}<a href={projectUrl} target="_blank" rel="noopener nofollow noreferrer" aria-label="link of the project"
+        ><Icon name="fa:external-link-square" class="w-4 inline-block ml-2 dark:text-white text-zinc-800 hover:text-blue-500 transition-colors" />
+      </a>
+    </h2>
+    <a href={githubUrl} target="_blank" rel="noopener nofollow noreferrer" aria-label="github repo of the website"
+      ><Icon name="akar-icons:github-fill" class="w-6 dark:text-white text-zinc-800 hover:text-blue-500 hover:scale-110 transition-all" />
+    </a>
+  </header>
+  <p>{description}</p>
+</div>

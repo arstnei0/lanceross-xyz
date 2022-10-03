@@ -1,55 +1,41 @@
 ---
-import Icons from "../components/Icons.astro";
-import Layout from "../layouts/Layout.astro";
+import IconSkill from "@components/IconSkill.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout
-    title="About - Lance Ross"
-    description="I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines. You can find more about me on this page."
->
-    <h1 class="text-4xl mb-6">About Me 👨‍💻</h1>
-    <p>
-        I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines.
-        I enjoy building projects using good ol' HTML, CSS, and JavaScript. I
-        started learning more stuff about computers when I was 13 years old and
-        decided to get a job in Web Development field when I grow up.
-    </p><br />
-    <p>
-        I create websites when I have free time after school. When not busy with
-        doing projects and schoolworks, I play different video games, try to how
-        to play a guitar, and does exercises every other day.
-    </p><br />
-    <h1 class="text-4xl my-6">Skills ⚡</h1>
-    <h2 class="text-2xl mb-2">Programming Languages</h2>
-    <div class="grid gap-2 grid-cols-1">
-        <Icons logo="logos:python" text="Python" href="https://python.org" />
-        <Icons
-            logo="logos:javascript"
-            text="JavaScript"
-            href="https://javascript.com"
-        />
-    </div><br />
-    <h2 class="text-2xl mb-2">Libraries and Tools</h2>
-    <div class="grid gap-2 grid-cols-1">
-        <Icons
-            logo="logos:tailwindcss-icon"
-            text="Tailwind CSS"
-            href="https://tailwindcss.com"
-        />
-        <Icons
-            logo="logos:firebase"
-            text="Firebase"
-            href="https://firebase.google.com"
-        />
-        <Icons
-            logo="vscode-icons:file-type-astro"
-            text="Astro"
-            href="https://astro.build"
-        />
-        <Icons
-            logo="logos:nodejs-icon"
-            text="Node.js"
-            href="https://nodejs.org"
-        />
-    </div><br />
+<Layout title="About - Lance Ross" description="I'm Lance Ross, a web dev from Philippines. You can find more about me on this page.">
+  <section>
+    <div class="mb-12">
+      <h1 class="text-4xl mb-6">About Me 👨‍💻</h1>
+      <p class="dark:text-zinc-300">
+        I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines. I enjoy building projects using good ol' HTML, CSS, and JavaScript. I started learning more stuff about
+        computers when I was 13 years old and decided to get a job in Web Development field when I grow up.
+      </p><br />
+      <p class="dark:text-zinc-300">
+        I create websites when I have free time after school. When not busy with doing projects and schoolworks, I play different video games, try to how to play a guitar, and does exercises
+        every other day.
+      </p>
+    </div>
+  </section>
+  <section>
+    <div class="mb-12">
+      <h1 class="text-4xl my-6">Skills ⚡</h1>
+      <h2 class="text-2xl mb-2">Programming Languages</h2>
+      <div class="grid gap-2 grid-cols-1 mb-5">
+        <IconSkill logo="logos:python" text="Python" />
+        <IconSkill logo="logos:javascript" text="JavaScript" />
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="mb-12">
+      <h2 class="text-2xl mb-2">Libraries and Tools</h2>
+      <div class="grid gap-2 grid-cols-1 mb-5">
+        <IconSkill logo="logos:tailwindcss-icon" text="Tailwind CSS" />
+        <IconSkill logo="logos:firebase" text="Firebase" />
+        <IconSkill logo="vscode-icons:file-type-astro" text="Astro" />
+        <IconSkill logo="logos:nodejs-icon" text="Node.js" />
+      </div>
+    </div>
+  </section>
 </Layout>

@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+  text: string;
+  logo: string;
+}
+
+const { text, logo } = Astro.props as Props;
+---
+
+<div class="flex items-center p-4">
+  <span class="flex justify-center items-center w-9 h-9 rounded-full mr-3 hover:scale-110 transition">
+    <Icon name={logo} />
+  </span>
+  <p>{text}</p>
+</div>

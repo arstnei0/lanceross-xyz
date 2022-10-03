@@ -1,61 +1,36 @@
 ---
+import "@fontsource/lexend-deca";
 export interface Props {
-    title?: string;
-    description?: string;
-    heroImage?: string;
-    imageAlt?: string;
+  title?: string;
+  description?: string;
 }
 
 const defaultMeta = {
-    title: "Lance Ross",
-    description: "This is a 404 Page you know?",
-    image: "banner.png",
-    imageAlt: "Marnie from Pokemon Journeys",
+  title: "404 Error",
+  description: "Yeah, it doesn't exist.",
 };
 
-const {
-    title = defaultMeta.title,
-    description = defaultMeta.description,
-    heroImage = defaultMeta.image,
-    imageAlt = defaultMeta.imageAlt,
-} = Astro.props as Props;
-
-const ImageURL = new URL(`/assets/${heroImage}`, Astro.site);
+const { title = defaultMeta.title, description = defaultMeta.description } = Astro.props as Props;
 const canonicalURL = new URL(Astro.url).href;
-import "@fontsource/lexend-deca";
 ---
 
 <!DOCTYPE html>
-<html lang="en-US" class="scroll-smooth font-lexend-deca text-white">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-        <title>{title}</title>
-        <link rel="canonical" href={canonicalURL} />
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={ImageURL} />
-        <meta property="og:image:alt" content={imageAlt} />
-        <meta property="og:site_name" content="Lance Ross" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta name="twitter:site" content="@lancerossdev" />
-        <meta name="twitter:creator" content="@lancerossdev" />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={ImageURL} />
-        <meta name="robots" content="follow, index" />
-        <meta name="author" content="Lance Ross" />
-    </head>
-    <body class="antialiased scrollbar-thin scrollbar-thumb-zinc-500 dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-y-hidden">
-        <main class="m-auto p-8 max-w-4xl md:p-10 text-center">
-            <slot />
-        </main>
-    </body>
+<html lang="en-US" class="font-lexend-deca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body class="antialiased dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-y-hidden">
+    <main class="m-auto p-8 max-w-4xl md:p-10 text-center">
+      <slot />
+    </main>
+  </body>
 </html>

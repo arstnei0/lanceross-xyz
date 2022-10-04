@@ -10,7 +10,7 @@ date: "October 02 2022"
 
 Hello! This is going to be my very first blog on my website. Today, I'm going to share with you my experience with Astro and its community.
 
-If you are curious about what is Astro, it is a [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/) where you can use different JavaScript Frameworks for the UI and ship them as static HTML on the build. It uses "Island Architecture" where Astro extracts your UI into smaller, isolated components on the page. Unused JavaScript is replaced with lightweight static HTML, guaranteeing faster loads on your project. 
+If you are curious about what is Astro, it is a [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/) where you can use different JavaScript Frameworks for the UI and ship them as static HTML on the build. It uses "Island Architecture" where Astro extracts your UI into smaller, isolated components on the page. Unused JavaScript is replaced with lightweight static HTML, guaranteeing faster loads on your project.
 
 I started using [Astro](https://astro.build) last month because of its cool templates, to begin with, and it’s easy to use for beginners. For my first project, I picked the default template which is going to be my new personal website. At first, I was confused about where to start, so I just checked the docs so I can learn with them. It was also my first time using components so I can reuse them on other pages too.
 

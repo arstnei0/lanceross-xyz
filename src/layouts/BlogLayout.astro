@@ -7,7 +7,7 @@ const canonicalURL = new URL(Astro.url).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en-US" class="scroll-smooth font-lexend-deca">
+<html lang="en-US" class="scroll-smooth font-lexend-deca selection:bg-[#3dff9e] selection:text-black">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -59,7 +59,7 @@ const canonicalURL = new URL(Astro.url).href;
         <h1 class="m-0 md:text-4xl mb-7">{frontmatter.title}</h1>
         <h2 class="m-0 md:text-xl mb-7">Written by {frontmatter.author}</h2>
       </div>
-      <div class="dark:text-zinc-200 prose-a:dark:text-blue-400 prose-a:!text-blue-500">
+      <div class="dark:text-zinc-200 prose-a:dark:text-blue-400 prose-a:text-blue-600">
         <slot />
       </div>
     </main>

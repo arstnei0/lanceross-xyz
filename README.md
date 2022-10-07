@@ -8,15 +8,15 @@ You can email me with my email address on my GitHub Profile or [create an Issue]
 
 ## Dev Notes 📝
 
-`npm i` or `pnpm i`- Installs dependencies. You can use any of those.
+You can use `npm i` or `pnpm i` to install dependencies. I personally use `yarn` because it's what I use on most of my projects.
 
-`npm run dev` - Starts local dev server at `localhost:3000`
+`yarn` - Installs dependencies. You can use any of those.
 
-`npm run build` - Build your production site to `./dist/`
+`yarn run dev` - Starts local dev server at `localhost:3000`
 
-`npm run preview` - Preview your build locally, before deploying
+`yarn run build` - Build your production site to `./dist/`
 
-`npm run astro --help` -  Get help using the Astro CLI
+`yarn run preview` - Preview your build locally, before deploying
 
 ## License ⚖️
 

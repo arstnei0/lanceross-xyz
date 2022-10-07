@@ -60,9 +60,9 @@ const canonicalURL = new URL(Astro.url).href;
         <h1 class="m-0 md:text-4xl mb-7">{frontmatter.title}</h1>
         <h2 class="m-0 md:text-xl mb-7">Written by {frontmatter.author}</h2>
       </div>
-      <div class="dark:text-zinc-200 prose-a:dark:text-blue-400 prose-a:text-blue-600">
+      <section class="dark:text-zinc-200 prose-a:dark:text-blue-400 prose-a:text-blue-600">
         <slot />
-      </div>
+      </section>
     </main>
   </body>
 </html>

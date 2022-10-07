@@ -11,10 +11,10 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^2.0.1",
+    "@astrojs/tailwind": "^2.0.2",
     "@fontsource/lexend-deca": "^4.5.11",
     "@tailwindcss/typography": "^0.5.7",
-    "astro": "^1.1.2",
+    "astro": "^1.4.5",
     "astro-compress": "1.0.8",
     "astro-icon": "^0.7.3",
     "tailwind-scrollbar": "^2.0.1",

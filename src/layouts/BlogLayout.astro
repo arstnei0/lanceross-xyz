@@ -35,6 +35,18 @@ const canonicalURL = new URL(Astro.url).href;
     <meta name="robots" content="follow, index" />
     <meta name="author" content="Lance Ross" />
     <script defer>
+      let theme = "light";
+      function toggleDarkMode() {
+        document.documentElement.classList.toggle("dark");
+        theme = theme === "light" ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+      }
+    </script>
+    <script defer>
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) document.documentElement.classList.add("dark");
+      else document.documentElement.classList.remove("dark");
+    </script>
+    <script defer>
       function openNav() {
         document.querySelector(".navbar").classList.add("w-screen");
         document.querySelector(".navbar").classList.remove("w-0");

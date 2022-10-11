@@ -19,5 +19,5 @@ export default defineConfig({
     img: true,
     svg: true,
     webp: true,
-  }), tailwind(), sitemap()]
+  }), tailwind(), sitemap()],
 });

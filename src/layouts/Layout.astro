@@ -1,5 +1,5 @@
 ---
-import NavBar from '@components/NavBar.astro';
+import NavBar from "@components/NavBar.astro";
 import "@fontsource/lexend-deca";
 export interface Props {
   title?: string;
@@ -22,7 +22,7 @@ const canonicalURL = new URL(Astro.url).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en-US" class="scroll-smooth font-lexend-deca selection:bg-[#3dff9e] selection:text-black">
+<html lang="en-US" class="scroll-smooth font-lexend-deca selection:bg-[#3d94ff42]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -49,7 +49,19 @@ const canonicalURL = new URL(Astro.url).href;
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
     <meta name="author" content="Lance Ross" />
-    <script defer type="text/javascript">
+    <script defer>
+      let theme = "light";
+      function toggleDarkMode() {
+        document.documentElement.classList.toggle("dark");
+        theme = theme === "light" ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+      }
+    </script>
+    <script defer>
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) document.documentElement.classList.add("dark");
+      else document.documentElement.classList.remove("dark");
+    </script>
+    <script defer>
       function openNav() {
         document.querySelector(".navbar").classList.add("w-screen");
         document.querySelector(".navbar").classList.remove("w-0");

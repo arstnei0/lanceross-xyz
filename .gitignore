@@ -18,8 +18,11 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# other stuffs
+# unnecessary directories
+.vercel
 .vscode
+
+# package manager lock files
 package-lock.json
 pnpm-lock.yaml
 yarn.lock

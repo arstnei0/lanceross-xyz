@@ -7,13 +7,13 @@ import SmallCard from "@components/SmallCard.astro";
   <section>
     <div class="inline-block space-evenly mt-5 mb-9 md:flex">
       <img class="inline-block rounded-full my-6 md:ml-8 md:my-14 md:mr-12 w-[172px] h-[172px]" src="/images/hero-image.webp" alt="A picture of Marnie from Pokemon Journeys" />
-      <article class="ml-1">
+      <section class="ml-1">
         <h1 class="text-4xl font-semibold my-7">Lance Ross</h1>
         <p class="phrase max-w-10 my-5">Student Web Developer 👨‍💻</p>
         <p class="max-w-10 dark:text-zinc-300">
           Welcome to my home on the internet. I'm an aspiring web developer in the Philippines building different projects for fun with web technologies I'm currently learning.
         </p>
-      </article>
+      </section>
     </div>
   </section>
   <section>
@@ -21,6 +21,7 @@ import SmallCard from "@components/SmallCard.astro";
       <h1 class="text-3xl !text-center">Featured Projects 📚</h1>
       <div class="pt-5 gap-3 grid-cols-1 grid">
         <SmallCard projectUrl="https://github.com/lancerossdev/lanceross-xyz" title="lanceross-xyz" description="Personal Website" />
+        <SmallCard projectUrl="https://github.com/lancerossdev/eleventy-tailwind" title="eleventy-tailwind" description="Basic 11ty Site" />
       </div>
     </div>
   </section>
@@ -28,7 +29,7 @@ import SmallCard from "@components/SmallCard.astro";
     <div class="py-14 grid place-items-center text-center">
       <h2 class="text-3xl mb-8">Get In Touch 💬</h2>
       <p class="max-w-lg dark:text-zinc-300">
-        If you want collab on a small project or just want say hello to me, Feel free to <span class="email text-blue-600 dark:text-blue-400 hover:text-teal-600 cursor-pointer transition"
+        If you want collab on a small project or just want say hello to me, Feel free to <span class="email text-blue-600 dark:text-blue-400 cursor-pointer transition"
           >enable your JavaScript on your browser</span
         > and I will do my best to reply!
       </p>
@@ -72,7 +73,7 @@ import SmallCard from "@components/SmallCard.astro";
   </section>
   <script defer>
     document.querySelector(".email").innerHTML =
-      "\x3C\x61\x20\x68\x72\x65\x66\x3D\x27\x6D\x61\x69\x6C\x74\x6F\x3A\x6C\x61\x6E\x63\x65\x72\x6F\x73\x73\x64\x65\x76\x40\x73\x6B\x69\x66\x66\x2E\x63\x6F\x6D\x27\x3E\x73\x65\x6E\x64\x20\x61\x6E\x20\x65\x6D\x61\x69\x6C\x3C\x2F\x61\x3E";
+      "\x3C\x61\x20\x68\x72\x65\x66\x3D\x27\x6D\x61\x69\x6C\x74\x6F\x3A\x6C\x61\x6E\x63\x65\x72\x6F\x73\x73\x64\x65\x76\x40\x73\x6B\x69\x66\x66\x2E\x63\x6F\x6D\x27\x20\x74\x61\x72\x67\x65\x74\x3D\x27\x5F\x62\x6C\x61\x6E\x6B\x27\x3E\x73\x65\x6E\x64\x20\x61\x6E\x20\x65\x6D\x61\x69\x6C\x3C\x2F\x61\x3E";
   </script>
   <script defer>
     const phrases = ["Student Web Developer 👨‍💻", "Tailwind CSS Lover 💨", "Big fan of Astro SSG 🚀", "Filipino Web Developer 😎"];

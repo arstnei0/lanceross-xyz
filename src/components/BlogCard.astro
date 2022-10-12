@@ -12,7 +12,7 @@ const fullDate = new Date(pubDate).toLocaleDateString("en", {
 url = url + "/";
 ---
 
-<div class="grid grid-cols-1 gap-2 sm:grid-cols-4 leading-relaxed rounded-2xl border-zinc-700 dark:text-zinc-400 transition-all">
+<div class="grid grid-cols-1 gap-2 sm:grid-cols-4 leading-relaxed rounded-2xl border-zinc-700 dark:text-zinc-400 transition-colors">
   <time datetime={pubDate} class="hidden sm:block text-sm tracking-wide dark:text-zinc-400 mt-6">{fullDate}</time>
   <a class="col-span-3 flex flex-col gap-2 sm:gap-4 p-5 hover:dark:bg-[#161923] hover:bg-[#e5e5e5] rounded-lg transition-colors" href={url}>
     <time datetime={pubDate} class="block sm:hidden text-sm tracking-wide dark:text-zinc-400">{fullDate}</time>

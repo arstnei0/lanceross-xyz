@@ -15,7 +15,7 @@ const canonicalURL = new URL(Astro.url).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en-US" class="font-lexend-deca selection:bg-[#3dff9e] selection:text-black">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +29,7 @@ const canonicalURL = new URL(Astro.url).href;
     <meta property="og:description" content={description} />
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body class="antialiased dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-y-hidden">
+  <body class="dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl font-lexend-deca selection:bg-[#3d94ff42] overflow-y-hidden">
     <main class="m-auto p-8 max-w-4xl md:p-10 text-center">
       <slot />
     </main>

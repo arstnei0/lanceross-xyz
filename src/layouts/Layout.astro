@@ -22,7 +22,7 @@ const canonicalURL = new URL(Astro.url).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en-US" class="scroll-smooth font-lexend-deca selection:bg-[#3d94ff42]">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -49,36 +49,54 @@ const canonicalURL = new URL(Astro.url).href;
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
     <meta name="author" content="Lance Ross" />
-    <script defer>
-      let theme = "light";
-      function toggleDarkMode() {
-        document.documentElement.classList.toggle("dark");
-        theme = theme === "light" ? "dark" : "light";
-        localStorage.setItem("theme", theme);
-      }
-    </script>
-    <script defer>
-      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) document.documentElement.classList.add("dark");
-      else document.documentElement.classList.remove("dark");
-    </script>
+    <meta name="theme-color" data-react-helmet="true" content="#5ad2f4" />
     <script defer>
       function openNav() {
-        document.querySelector(".navbar").classList.add("w-screen");
-        document.querySelector(".navbar").classList.remove("w-0");
-        document.querySelector("body").classList.add("overflow-y-hidden");
-        document.querySelector("body").classList.remove("overflow-auto");
+        document.querySelector(".navbar").classList.replace("w-0", "w-screen");
+        document.querySelector("body").classList.replace("overflow-auto", "overflow-y-hidden");
       }
 
       function closeNav() {
-        document.querySelector(".navbar").classList.add("w-0");
-        document.querySelector(".navbar").classList.remove("w-screen");
-        document.querySelector("body").classList.add("overflow-auto");
-        document.querySelector("body").classList.remove("overflow-y-hidden");
+        document.querySelector(".navbar").classList.replace("w-screen", "w-0");
+        document.querySelector("body").classList.replace("overflow-y-hidden", "overflow-auto");
       }
+    </script>
+    <script is:inline>
+      // credits to satnaing on github
+      const primaryColorScheme = "none";
+      const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const currentTheme = localStorage.getItem("theme");
+
+      let theme;
+      if (currentTheme) {
+        theme = currentTheme === "dark" ? "dark" : "";
+      } else {
+        if (primaryColorScheme === "dark" || (primaryColorScheme === "none" && darkModeMediaQuery)) {
+          theme = "dark";
+        } else if (primaryColorScheme === "light") {
+          theme = "";
+        } else {
+          theme = darkModeMediaQuery ? "dark" : "";
+        }
+      }
+      document.documentElement.className = theme;
+    </script>
+    <script>
+      const themeBtn = document.querySelector(".theme-toggle");
+      const htmlClassList = document.documentElement.classList;
+      themeBtn.addEventListener("click", function () {
+        if (htmlClassList.contains("dark")) {
+          localStorage.setItem("theme", "light");
+          htmlClassList.remove("dark");
+        } else {
+          localStorage.setItem("theme", "dark");
+          htmlClassList.add("dark");
+        }
+      });
     </script>
   </head>
   <body
-    class="transition scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl overflow-auto"
+    class="transition scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white font-lexend-deca selection:bg-[#3d94ff42] m-0 min-h-screen flex flex-col text-xl overflow-auto"
   >
     <NavBar />
     <main class="m-auto p-6 max-w-4xl md:p-10 md:px-20">

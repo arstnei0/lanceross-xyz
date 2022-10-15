@@ -1,40 +1,26 @@
 ---
-import IconSkill from "@components/IconSkill.astro";
+import Technologies from "@components/Technologies.astro";
 import Layout from "@layouts/Layout.astro";
+import technologies from "@content/technologies.json";
 ---
 
 <Layout title="About - Lance Ross" description="I'm Lance Ross, a web dev from Philippines. You can find more about me on this page.">
   <section>
-    <div class="mb-12">
-      <h1 class="text-4xl mb-6">About Me 👨‍💻</h1>
-      <p class="dark:text-zinc-300">
-        I'm Lance Ross, an aspiring Frontend Web Developer from the Philippines. I enjoy building projects using good ol' HTML, CSS, and JavaScript. I started learning more stuff about
-        computers when I was 13 years old and decided to get a job in Web Development field when I grow up.
+    <div class="mb-12 dark:text-zinc-300">
+      <h1 class="text-4xl mb-6 dark:text-white">About Me 👨‍💻</h1>
+      <p>
+        I'm Lance Ross, an aspiring Web developer from the Philippines. I enjoy building projects using Astro and Tailwind CSS. I started learning web development last August 2022.
       </p><br />
-      <p class="dark:text-zinc-300">
-        I create websites when I have free time after school. When not busy with doing projects and schoolworks, I play different video games, try to how to play a guitar, and does exercises
-        every other day.
+      <p>
+        I create websites when I have free time after school. When not busy with doing projects and schoolworks, I try to how to play a guitar, and does exercise every other day at night.
       </p>
     </div>
   </section>
   <section>
     <div class="mb-12">
       <h1 class="text-4xl my-6">Skills ⚡</h1>
-      <h2 class="text-2xl mb-2">Programming Languages</h2>
       <div class="grid gap-2 grid-cols-1 mb-5">
-        <IconSkill logo="logos:python" text="Python" />
-        <IconSkill logo="logos:javascript" text="JavaScript" />
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="mb-12">
-      <h2 class="text-2xl mb-2">Libraries and Tools</h2>
-      <div class="grid gap-2 grid-cols-1 mb-5">
-        <IconSkill logo="logos:tailwindcss-icon" text="Tailwind CSS" />
-        <IconSkill logo="logos:firebase" text="Firebase" />
-        <IconSkill logo="vscode-icons:file-type-astro" text="Astro" />
-        <IconSkill logo="logos:nodejs-icon" text="Node.js" />
+        {technologies.map((tech) => <Technologies logo={tech.logo} text={tech.text} />)}
       </div>
     </div>
   </section>

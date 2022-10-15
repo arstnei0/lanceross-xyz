@@ -1,0 +1,16 @@
+[
+  {
+    "title": "lanceross-xyz",
+    "projectUrl": "https://lanceross.xyz/",
+    "githubUrl": "https://github.com/lancerossdev/lanceross-xyz",
+    "description": "Personal website made with Astro 🚀",
+    "technologies": ["Astro", "Tailwind CSS"]
+  },
+  {
+    "title": "eleventy-tailwind",
+    "projectUrl": "https://brownie-dog.vercel.app",
+    "githubUrl": "https://github.com/lancerossdev/eleventy-tailwind",
+    "description": "Sample 11ty Site. Might delete soon hehe.",
+    "technologies": ["11ty", "Tailwind CSS"]
+  }
+]

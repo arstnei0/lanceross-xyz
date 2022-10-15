@@ -6,17 +6,20 @@ I will try to update this every time I uploaded something like on blogs and proj
 
 You can email me with my email address on my GitHub Profile or [create an Issue](https://github.com/lancerossdev/lanceross-xyz/issues/new) if you think there's something wrong or you want to add something with my website. I will appreciate your help!
 
+
+![Preview of the Website](https://user-images.githubusercontent.com/102563271/195970816-4b8742dd-9771-49e8-8d4a-517a79e1b8b1.png)
+
 ## Dev Notes 📝
 
 You can use `npm i` or `pnpm i` to install dependencies. I personally use `yarn` because it's what I use on most of my projects.
 
 `yarn` - Installs dependencies. You can use any of those.
 
-`yarn run dev` - Starts local dev server at `localhost:3000`
+`yarn dev` - Starts local dev server at `localhost:3000`
 
-`yarn run build` - Build your production site to `./dist/`
+`yarn build` - Build your production site to `./dist/`
 
-`yarn run preview` - Preview your build locally, before deploying
+`yarn preview` - Preview your build locally, before deploying
 
 ## License ⚖️
 

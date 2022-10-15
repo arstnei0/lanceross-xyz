@@ -28,6 +28,25 @@ const canonicalURL = new URL(Astro.url).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      // credits to satnaing on github
+      const primaryColorScheme = "none";
+      const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const currentTheme = localStorage.getItem("theme");
+      let theme;
+      if (currentTheme) {
+        theme = currentTheme === "dark" ? "dark" : "";
+      } else {
+        if (primaryColorScheme === "dark" || (primaryColorScheme === "none" && darkModeMediaQuery)) {
+          theme = "dark";
+        } else if (primaryColorScheme === "light") {
+          theme = "";
+        } else {
+          theme = darkModeMediaQuery ? "dark" : "";
+        }
+      }
+      document.documentElement.className = theme;
+    </script>
   </head>
   <body class="dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl font-lexend-deca selection:bg-[#3d94ff42] overflow-y-hidden">
     <main class="m-auto p-8 max-w-4xl md:p-10 text-center">

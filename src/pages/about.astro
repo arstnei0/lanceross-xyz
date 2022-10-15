@@ -8,18 +8,15 @@ import technologies from "@content/technologies.json";
   <section>
     <div class="mb-12 dark:text-zinc-300">
       <h1 class="text-4xl mb-6 dark:text-white">About Me 👨‍💻</h1>
-      <p>
-        I'm Lance Ross, an aspiring Web developer from the Philippines. I enjoy building projects using Astro and Tailwind CSS. I started learning web development last August 2022.
-      </p><br />
-      <p>
-        I create websites when I have free time after school. When not busy with doing projects and schoolworks, I try to how to play a guitar, and does exercise every other day at night.
-      </p>
+      <p>I'm Lance Ross, an aspiring Web developer from the Philippines. I enjoy building projects using Astro and Tailwind CSS. I started learning web development last August 2022.</p><br />
+      <p>I create websites when I have free time after school. When not busy with doing projects and schoolworks, I try to how to play a guitar, and does exercise every other day at night.</p>
     </div>
   </section>
   <section>
-    <div class="mb-12">
-      <h1 class="text-4xl my-6">Skills ⚡</h1>
-      <div class="grid gap-2 grid-cols-1 mb-5">
+    <div class="mb-12 dark:text-zinc-300">
+      <h1 class="text-4xl my-6 dark:text-white">Tech Stack ⚡</h1>
+      <p>I love exploring new libraries and frameworks. Here is a short list of technologies that I use with my side projects.</p>
+      <div class="grid gap-2 grid-cols-1 my-5">
         {technologies.map((tech) => <Technologies logo={tech.logo} text={tech.text} />)}
       </div>
     </div>

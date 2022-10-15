@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
+import Projects from "@content/projects.json";
 ---
 
 <Layout title="Projects - Lance Ross" description="Here are all my projects from my GitHub account.">
@@ -10,9 +11,18 @@ import ProjectCard from "@components/ProjectCard.astro";
       These are all projects that I own and contribute to during my free time. Each project have a link on their repositories so you can visit the project on your browser. You can check all
       my projects in <a href="https://github.com/lancerossdev?tab=repositories" target="_blank" rel="noopener nofollow" class="text-blue-600 dark:text-blue-400">GitHub</a>.
     </p>
-    <ul role="list" class="grid mb-5">
-      <ProjectCard title="lanceross-xyz" projectUrl="https://lanceross.xyz" githubUrl="https://github.com/lancerossdev/lanceross-xyz" description="Personal Website" />
-      <ProjectCard title="eleventy-tailwind" projectUrl="https://brownie-dog.vercel.app/" githubUrl="https://github.com/lancerossdev/eleventy-tailwind" description="Basic 11ty Site" />
-    </ul>
+    <section class="grid mb-5">
+      {
+        Projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            projectUrl={project.projectUrl}
+            githubUrl={project.githubUrl}
+            technologies={project.technologies}
+          />
+        ))
+      }
+    </section>
   </section>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import BlogCard from "@components/BlogCard.astro";
+import Blogs from "@content/blogs.json";
 ---
 
 <Layout title="Blog - Lance Ross" description="This is where you can find my blogs from Dev Community (dev.to)">
@@ -9,6 +10,17 @@ import BlogCard from "@components/BlogCard.astro";
     <p class="dark:text-zinc-300">
       This is where I write about my experiences as a developer, and share my thoughts in web development field. I also write about my personal life and my journey as a developer.
     </p><br />
-    <BlogCard title="My Experience with Astro" pubDate="Oct 2 2022" description="I am going to share my experience of using Astro for a month." url="/blog/my-experience-with-astro" />
+  </section>
+  <section>
+    {
+      Blogs.map((blog) => (
+        <BlogCard
+          title={blog.title}
+          description={blog.description}
+          pubDate={blog.pubDate}
+          url={blog.url}
+        />
+      ))
+    }
   </section>
 </Layout>

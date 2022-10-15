@@ -1,5 +1,5 @@
 ---
-import NavBar from "@components/NavBar.astro";
+import Header from "@components/Header.astro";
 import "@fontsource/lexend-deca";
 const { frontmatter } = Astro.props;
 
@@ -79,14 +79,14 @@ const canonicalURL = new URL(Astro.url).href;
     </script>
   </head>
   <body
-    class="transition scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white m-0 min-h-screen flex flex-col text-xl font-lexend-deca selection:bg-[#3d94ff42] overflow-auto"
+    class="transition scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white font-lexend-deca selection:bg-[#3d94ff42] min-h-screen flex flex-col text-xl overflow-auto"
   >
-    <NavBar />
-    <main class="prose-base md:prose-xl m-auto p-6 max-w-4xl md:p-10 md:px-20">
+    <Header />
+    <main class="prose-xl m-auto p-6 max-w-4xl md:p-10 md:px-20">
       <div class="grid place-items-center text-center">
         <span class="text-xl dark:text-zinc-300 mb-5">{frontmatter.date}</span>
-        <h1 class="m-0 md:text-4xl mb-7">{frontmatter.title}</h1>
-        <h2 class="m-0 md:text-xl mb-7">Written by {frontmatter.author}</h2>
+        <h1 class="m-0 text-3xl mb-7 dark:text-white">{frontmatter.title}</h1>
+        <h2 class="m-0 !text-xl mb-7 dark:text-zinc-300">Written by {frontmatter.author}</h2>
       </div>
       <section class="dark:text-zinc-200 prose-a:dark:text-blue-400 prose-a:text-blue-600">
         <slot />

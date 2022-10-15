@@ -1,6 +1,7 @@
 ---
-import NavBar from "@components/NavBar.astro";
+import Header from "@components/Header.astro";
 import "@fontsource/lexend-deca";
+
 export interface Props {
   title?: string;
   description?: string;
@@ -50,23 +51,24 @@ const canonicalURL = new URL(Astro.url).href;
     <meta name="robots" content="follow, index" />
     <meta name="author" content="Lance Ross" />
     <meta name="theme-color" data-react-helmet="true" content="#5ad2f4" />
-    <script defer>
-      function openNav() {
+    <script>
+      const open = document.querySelector(".open");
+      const close = document.querySelector(".close");
+      open.addEventListener("click", function () {
         document.querySelector(".navbar").classList.replace("w-0", "w-screen");
         document.querySelector("body").classList.replace("overflow-auto", "overflow-y-hidden");
-      }
+      });
 
-      function closeNav() {
+      close.addEventListener("click", function () {
         document.querySelector(".navbar").classList.replace("w-screen", "w-0");
         document.querySelector("body").classList.replace("overflow-y-hidden", "overflow-auto");
-      }
+      });
     </script>
     <script is:inline>
       // credits to satnaing on github
       const primaryColorScheme = "none";
       const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const currentTheme = localStorage.getItem("theme");
-
       let theme;
       if (currentTheme) {
         theme = currentTheme === "dark" ? "dark" : "";
@@ -95,14 +97,12 @@ const canonicalURL = new URL(Astro.url).href;
       });
     </script>
   </head>
-  <body
-    class="transition scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white font-lexend-deca selection:bg-[#3d94ff42] m-0 min-h-screen flex flex-col text-xl overflow-auto"
-  >
-    <NavBar />
+  <body class="transition scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300 dark:scrollbar-thumb-[#454b5f] dark:scrollbar-track-[#1d1f2a] dark:bg-[#101218] dark:text-white font-lexend-deca selection:bg-[#3d94ff42] min-h-screen flex flex-col text-xl overflow-auto">
+    <Header />
     <main class="m-auto p-6 max-w-4xl md:p-10 md:px-20">
       <slot />
     </main>
-    <footer class="grid place-items-center py-7 bg-[#181a23] text-white text-base text-center">
+    <footer class="grid place-items-center py-7 bg-[#181a23] text-white text-base">
       <p>Designed and built by Lance Ross</p>
       <p>Built using Astro and Tailwind CSS</p>
     </footer>
